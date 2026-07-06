@@ -268,6 +268,50 @@ table.t tr:hover td{background:#fbfbfa}
 @media(max-width:900px){.tabs{font-size:11px}}
 
 </style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+.trust-strip{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:20px 0 4px}
+.trust-strip .ts{background:#fff;border:1px solid var(--hair);border-radius:24px;padding:7px 15px;font-size:12.5px;font-weight:600;color:var(--forest)}
+.flow4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.flow4 .fs{background:#fff;border:1px solid var(--hair);border-radius:14px;padding:16px;box-shadow:var(--shadow)}
+.flow4 .fs .n{width:30px;height:30px;border-radius:50%;background:var(--forest);color:#fff;display:grid;place-items:center;font-family:var(--serif);font-weight:700;margin-bottom:8px}
+.flow4 .fs h4{margin:0 0 4px;font-family:var(--serif);font-size:15px}
+.flow4 .fs p{margin:0;font-size:12px;color:var(--muted)}
+.bench{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+.bench .bc{background:#fff;border:1px solid var(--hair);border-radius:12px;padding:14px;text-align:center;box-shadow:var(--shadow)}
+.bench .bc .bv{font-family:var(--serif);font-size:24px;color:var(--forest)}
+.bench .bc .bl{font-size:11.5px;color:var(--muted);margin-top:3px}
+.bench .bc .bref{font-size:10.5px;color:var(--gold);margin-top:4px}
+.factbl{width:100%;border-collapse:collapse;font-size:12px;margin-top:6px}
+.factbl th{text-align:left;color:var(--muted);font-weight:600;padding:6px 8px;border-bottom:1px solid var(--hair)}
+.factbl td{padding:6px 8px;border-bottom:1px solid #eef3ea}
+.factbl td.n{text-align:right;font-variant-numeric:tabular-nums}
+.accueq{display:flex;flex-wrap:wrap;align-items:center;gap:10px;background:var(--pasture);color:#fff;border-radius:12px;padding:16px 18px;margin-top:6px}
+.accueq .b{font-family:var(--serif);font-size:18px}.accueq .g{color:#e9c768;font-family:var(--serif);font-size:22px}
+.accueq .op{color:#9cc18c}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.compare .col{border-radius:12px;padding:16px;border:1px solid var(--hair)}
+.compare .col.bad{background:#fbf1ef;border-color:#f0d9d5}
+.compare .col.good{background:#eef6ec;border-color:#cfe3c6}
+.compare .col h4{margin:0 0 8px;font-family:var(--serif);font-size:15px}
+.compare .col ul{margin:0;padding:0}
+.compare .col li{font-size:12.5px;margin:6px 0;list-style:none;padding-left:22px;position:relative;color:var(--ink)}
+.compare .col.bad li:before{content:"✕";position:absolute;left:0;color:var(--red);font-weight:700}
+.compare .col.good li:before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
+#gismap{background:#eef3ea}
+.gis-fallback{height:340px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;text-align:center;padding:24px}
+.leaflet-container{font-family:var(--sans)}
+.factor-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.factor-flow .fx{background:var(--wash,#f4f7f1);border:1px solid var(--hair);border-radius:12px;padding:14px 10px;text-align:center}
+.factor-flow .fx .n{width:26px;height:26px;border-radius:50%;background:var(--forest);color:#fff;font-family:var(--serif);font-weight:700;display:grid;place-items:center;margin:0 auto 7px}
+.factor-flow .fx.gold .n{background:var(--gold)}
+.factor-flow .fx b{font-size:12.5px;display:block}.factor-flow .fx span{font-size:10.5px;color:var(--muted)}
+.eqbox{background:#f4f7f1;border:1px solid var(--hair);border-radius:12px;padding:16px;text-align:center;font-family:var(--serif);font-size:17px}
+.eqbox b{color:var(--forest)}.eqbox .op{color:var(--muted);margin:0 6px}
+.gaschip{display:inline-flex;align-items:center;gap:8px;margin:6px 12px 6px 0;font-size:13px}
+.gaschip i{width:34px;height:34px;border-radius:8px;color:#fff;display:grid;place-items:center;font-size:11px;font-weight:700}
+</style>
 </head>
 <body>
 
@@ -285,6 +329,7 @@ table.t tr:hover td{background:#fbfbfa}
       <button data-v="input" onclick="go('input')">Farm Data Input</button>
       <button data-v="ai" onclick="go('ai')">AI Recommendations</button>
       <button data-v="credit" onclick="go('credit')">Carbon Credits</button>
+      <button data-v="methods" onclick="go('methods')">Methods &amp; Standards</button>
       <button data-v="about" onclick="go('about')">About / Impact</button>
       <button data-v="contact" onclick="go('contact')">Contact</button>
     </nav>
@@ -335,6 +380,17 @@ table.t tr:hover td{background:#fbfbfa}
     </div>
   </div>
 
+  <div class="trust-strip">
+    <span class="ts">Aligned to NGER</span><span class="ts">IPCC Tier 2 factors</span><span class="ts">Clean Energy Regulator · ACCU pathway</span><span class="ts">Audit-ready data</span><span class="ts">Cradle-to-farm-gate LCA</span>
+  </div>
+  <div class="sec-head" style="margin-top:24px"><span class="kicker">The workflow</span><h2 class="h-lead">Baseline → Reduce → Verify → Earn</h2></div>
+  <div class="flow4">
+    <div class="fs"><div class="n">1</div><h4>Baseline</h4><p>Establish emissions with NGER / IPCC factors, cradle-to-farm-gate.</p></div>
+    <div class="fs"><div class="n">2</div><h4>Reduce</h4><p>AI-ranked interventions cut emissions against the baseline.</p></div>
+    <div class="fs"><div class="n">3</div><h4>Verify</h4><p>Audit-ready data supports independent verification.</p></div>
+    <div class="fs"><div class="n">4</div><h4>Earn</h4><p>Verified reductions become ACCUs under an approved method.</p></div>
+  </div>
+
   <div class="sec-head" style="margin-top:34px"><span class="kicker">Why LCCIP</span><h2 class="h-lead">From carbon reporting to carbon revenue</h2></div>
   <div class="cards c4">
     <div class="tile"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#2c5f2d" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div><h3>Monitor</h3><p>Real-time Scope 1·2·3 emissions and product carbon intensity for every farm.</p></div>
@@ -373,6 +429,11 @@ table.t tr:hover td{background:#fbfbfa}
         <div class="grp"><label>Farm</label><select id="farmsel" onchange="renderDash()"></select></div>
         <div class="grp"><label>Region</label><div class="chips" id="regionchips"></div></div>
         <span class="live-pill"><i></i>Live · synced just now</span>
+      </div>
+      <div id="data-transparency"></div>
+      <div class="panel" style="margin-bottom:18px">
+        <h3>Farm network — GIS map</h3><div class="ph">Live farm &amp; paddock locations · click a marker (interactive online map)</div>
+        <div id="gismap" style="height:340px;border-radius:12px;overflow:hidden"></div>
       </div>
       <div id="dash-content"></div>
     </div>
@@ -491,7 +552,7 @@ table.t tr:hover td{background:#fbfbfa}
 
 <!-- ============ FARM DATA INPUT ============ -->
 <section class="view" data-view="input">
-  <div class="sec-head"><span class="kicker">Farm data input</span><h2 class="h-lead">Enter your farm data — see emissions instantly</h2><p class="sub">Producers enter operational data through guided fields; the platform converts it to CO₂-e using IPCC/NGER-style factors. No spreadsheets, no carbon-accounting expertise.</p></div>
+  <div class="sec-head"><span class="kicker">Farm data input</span><h2 class="h-lead">Enter your farm data — see emissions instantly</h2><p class="sub">Producers enter operational data through guided fields; the platform converts it to CO₂-e using NGER / IPCC-aligned factors — including <b>land &amp; vegetation</b>. Every number is traceable (see the factor table below). Indicative demonstration.</p></div>
   <div class="panel" style="margin-bottom:18px">
     <div class="form-grid">
       <div class="fld"><label>Farm name</label><input id="i-name" value="My Farm"></div>
@@ -503,6 +564,10 @@ table.t tr:hover td{background:#fbfbfa}
       <div class="fld"><label>Feed purchased (t / year)</label><input id="i-feed" type="number" value="850"></div>
       <div class="fld"><label>Fertiliser N (kg / year)</label><input id="i-fert" type="number" value="12000"></div>
       <div class="fld"><label>Milk output (L / year)</label><input id="i-milk" type="number" value="1572000"></div>
+      <div class="fld"><label>Trees / shelterbelt (ha)</label><input id="i-trees" type="number" value="18"></div>
+      <div class="fld"><label>Pasture area (ha)</label><input id="i-pasture" type="number" value="420"></div>
+      <div class="fld"><label>Land cleared this year (ha)</label><input id="i-cleared" type="number" value="0"></div>
+      <div class="fld"><label>Planned reduction (% → ACCUs)</label><input id="i-redpct" type="number" value="12"></div>
     </div>
     <button class="btn-lg btn-primary" style="margin-top:18px" onclick="calcInput()">Calculate emissions</button>
   </div>
@@ -544,6 +609,75 @@ table.t tr:hover td{background:#fbfbfa}
     <div class="tile"><h3>The gap we fill</h3><p>No single platform connected operational data, LCA modelling, AI forecasting and ACCU monetisation for cattle farms. LCCIP unifies the full decision cycle.</p></div>
     <div class="tile"><h3>Why it matters</h3><p>Cattle farming is one of Australia's largest emission sources. Farm-level intelligence unlocks Scope 3 supply-chain trust, net-zero progress and new farm income.</p></div>
   </div>
+</section>
+
+<!-- ============ METHODS & STANDARDS ============ -->
+<section class="view" data-view="methods">
+  <div class="sec-head"><span class="kicker">Methods &amp; standards</span><h2 class="h-lead">How our carbon is calculated — and how it becomes ACCUs</h2>
+    <p class="sub">Transparent, NGER / IPCC-aligned, and built to plug into the real Australian carbon-credit scheme. This page is what we show to auditors, processors and the Clean Energy Regulator.</p></div>
+
+  <div class="sec-head" style="margin-top:8px"><span class="kicker">Mechanism</span><h2 class="h-lead" style="font-size:22px">The carbon emission mechanism</h2></div>
+  <div class="eqbox" style="margin-bottom:14px">Total emissions <span class="op">=</span> Σ (&nbsp;<b>activity</b> <span class="op">×</span> <b>emission factor</b>&nbsp;)</div>
+  <div class="cards c2" style="margin-bottom:8px">
+    <div class="tile"><h3>Three gases → one unit (CO₂-e)</h3>
+      <div style="margin-top:8px">
+        <span class="gaschip"><i style="background:#586b5e">CO₂</i> ×1 &nbsp;— diesel, electricity</span><br>
+        <span class="gaschip"><i style="background:#d14a3f">CH₄</i> ×28 — cattle &amp; manure</span><br>
+        <span class="gaschip"><i style="background:#df9b26">N₂O</i> ×265 — fertiliser &amp; manure</span>
+      </div>
+      <p style="font-size:12px;color:var(--muted);margin-top:8px">Methane dominates cattle carbon — a little counts as a lot of CO₂-e.</p></div>
+    <div class="tile"><h3>Cradle-to-farm-gate LCA · Scopes 1·2·3</h3>
+      <p style="font-size:12.5px;color:var(--muted);margin:6px 0 0">We count on-farm and <b>embedded</b> supply-chain emissions, then express them per unit of product (kg CO₂-e / L milk or / kg beef). Sorted into <b>Scope 1</b> (direct), <b>Scope 2</b> (energy) and <b>Scope 3</b> (feed &amp; transport) — the standard used by processors and lenders.</p></div>
+  </div>
+
+  <div class="sec-head" style="margin-top:26px"><span class="kicker">ACCU pathway</span><h2 class="h-lead" style="font-size:22px">From reduction to credit — the real process</h2></div>
+  <div class="factor-flow">
+    <div class="fx"><div class="n">1</div><b>Approved method</b><span>Register under a CER-approved method (e.g. beef herd, soil carbon)</span></div>
+    <div class="fx"><div class="n">2</div><b>Baseline</b><span>Establish an approved baseline with NGER factors</span></div>
+    <div class="fx"><div class="n">3</div><b>Reduce &amp; measure</b><span>Apply interventions · measure project emissions</span></div>
+    <div class="fx"><div class="n">4</div><b>Independent audit</b><span>Third-party verification of the reduction</span></div>
+    <div class="fx gold"><div class="n">5</div><b>CER issues ACCUs</b><span>1 ACCU per verified tonne · sell or inset</span></div>
+  </div>
+  <div class="accueq" style="margin-top:14px">
+    <span class="b">ACCUs</span><span class="op">=</span>
+    <span class="b">( Baseline − Project )</span><span class="op">×</span>
+    <span class="b">(1 − risk buffer)</span><span class="op">·</span>
+    <span class="g">Revenue = ACCUs × ~$38</span>
+  </div>
+
+  <div class="sec-head" style="margin-top:26px"><span class="kicker">Transparency</span><h2 class="h-lead" style="font-size:22px">Emission factors we use</h2></div>
+  <div class="panel">
+    <table class="factbl"><tr><th>Source</th><th>Factor</th><th>Basis / standard</th></tr>
+      <tr><td>Enteric methane</td><td>2.0–3.1 t CO₂-e / head</td><td>IPCC Tier 2 (by system)</td></tr>
+      <tr><td>Manure</td><td>0.55 t CO₂-e / head</td><td>IPCC / NGER</td></tr>
+      <tr><td>Diesel</td><td>2.68 kg CO₂-e / L</td><td>NGER (National Greenhouse Accounts)</td></tr>
+      <tr><td>Electricity</td><td>0.66 kg CO₂-e / kWh</td><td>NGER grid factor</td></tr>
+      <tr><td>Feed (embedded)</td><td>0.6 t CO₂-e / t</td><td>Life-cycle inventory (indicative)</td></tr>
+      <tr><td>Fertiliser (N₂O)</td><td>5.5 kg CO₂-e / kg N</td><td>IPCC N₂O</td></tr>
+      <tr><td>Land — trees / shelterbelt</td><td>−6.0 t CO₂-e / ha / yr</td><td>Sequestration (indicative)</td></tr>
+      <tr><td>Land — pasture / soil</td><td>−0.5 t CO₂-e / ha / yr</td><td>Soil carbon (indicative)</td></tr>
+      <tr><td>Land-use change (clearing)</td><td>+120 t CO₂-e / ha</td><td>LULUCF (indicative)</td></tr>
+    </table>
+    <p style="font-size:11.5px;color:var(--muted);margin-top:10px"><b>Note:</b> factors shown are NGER/IPCC-aligned and indicative for demonstration. Production uses the current published NGER edition and method-specific equations, verified before any credit is issued.</p>
+  </div>
+
+  <div class="sec-head" style="margin-top:26px"><span class="kicker">Why it's more than a calculator</span><h2 class="h-lead" style="font-size:22px">Normal calculator vs LCCIP (LCA)</h2></div>
+  <div class="compare">
+    <div class="col bad"><h4>A normal footprint calculator</h4><ul>
+      <li>On-farm emissions only — stops at the fence</li>
+      <li>Ignores embedded feed &amp; fertiliser emissions</li>
+      <li>Gives one lump total</li>
+      <li>No land / vegetation carbon</li>
+      <li>No credit pathway</li></ul></div>
+    <div class="col good"><h4>LCCIP — life-cycle assessment</h4><ul>
+      <li>Cradle-to-farm-gate boundary (stated)</li>
+      <li>Counts embedded Scope 3 (feed, transport)</li>
+      <li>Reports intensity per litre / per kg</li>
+      <li>Includes land sequestration &amp; land-use change</li>
+      <li>Shapes reductions into ACCUs (baseline − project)</li></ul></div>
+  </div>
+
+  <div class="note-banner" style="margin-top:24px"><b>Honest status.</b> LCCIP produces audit-ready, NGER/IPCC-aligned data to support carbon projects. It does not itself issue ACCUs — certification requires an approved CER method, baseline and independent verification.</div>
 </section>
 
 <!-- ============ CONTACT ============ -->
@@ -733,7 +867,36 @@ function renderDashView(){
   document.getElementById('regionchips').innerHTML=regions.map(r=>`<span class="chip ${r===regionFilter?'on':''}" onclick="setRegion('${r}')">${r}</span>`).join("");
   fillSelect(document.getElementById('farmsel'));
   renderDash();
+  renderTransparency();
+  setTimeout(initGisMap,150);
 }
+let _gis=null;
+function initGisMap(){
+  const el=document.getElementById('gismap'); if(!el) return;
+  if(!window.L){ el.innerHTML='<div class="gis-fallback">Interactive map loads online (Leaflet + OpenStreetMap). On the hosted site it shows live farm &amp; paddock locations.</div>'; return; }
+  if(_gis){ setTimeout(()=>_gis.invalidateSize(),200); return; }
+  try{
+    _gis=L.map(el,{scrollWheelZoom:false}).setView([-27.5,146],4);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap',maxZoom:12}).addTo(_gis);
+    FARMS.forEach(f=>{const c=f.hot[0][1]>=30?'#d14a3f':(f.hot[0][1]>=20?'#df9b26':'#4e9d52');
+      L.circleMarker([f.mx[0],f.mx[1]],{radius:9,color:'#fff',weight:2,fillColor:c,fillOpacity:0.9}).addTo(_gis)
+       .bindPopup('<b>'+f.name+'</b><br>'+f.region+' · '+f.type+'<br>Net '+(f.net/1000).toFixed(2)+'k tCO₂-e/yr · NDVI '+f.ndvi.toFixed(2)+'<br>'+f.paddocks+' paddocks · '+f.accu+' ACCUs/yr');});
+    setTimeout(()=>_gis.invalidateSize(),300);
+  }catch(e){ el.innerHTML='<div class="gis-fallback">Map unavailable.</div>'; }
+}
+function renderTransparency(){
+  const el=document.getElementById('data-transparency'); if(!el) return;
+  const now=new Date().toLocaleTimeString();
+  const srcs=[['IoT sensors','live'],['Farm-management system','live'],['Invoices &amp; meters','daily'],['Satellite / NDVI (GIS)','weekly'],['Manual entry','on submit']];
+  el.innerHTML=`<div class="panel" style="margin-bottom:18px">
+    <h3>Transparent &amp; automated data</h3><div class="ph">Every figure is traceable to a source and a factor · auto-synced</div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:6px">
+      ${srcs.map(s=>`<span class="chip">${s[0]} · <b style="color:var(--forest)">${s[1]}</b></span>`).join('')}
+    </div>
+    <div style="font-size:11.5px;color:var(--muted);margin-top:10px">Last sync ${now} · factors: NGER / IPCC Tier 2 · <b>indicative demo</b> — production applies audited factors and independent verification.</div>
+  </div>`;
+}
+
 function setRegion(r){regionFilter=r;
   document.querySelectorAll('#regionchips .chip').forEach(c=>c.classList.toggle('on',c.textContent===r));
   const sel=document.getElementById('farmsel');
@@ -847,30 +1010,78 @@ function updCredit(){
 /* =================== FARM DATA INPUT =================== */
 function calcInput(){
   const $=id=>document.getElementById(id);
-  const head=+$('i-head').value||0, diesel=+$('i-diesel').value||0, elec=+$('i-elec').value||0, feed=+$('i-feed').value||0, fert=+$('i-fert').value||0, milk=+$('i-milk').value||0;
-  const type=$('i-type').value;
-  const entericEF={Dairy:3.1,Beef:2.0,Mixed:2.6,Feedlot:2.2}[type];
-  const enteric=head*entericEF;                 // tCO2e
-  const manure=head*0.55;
-  const fuel=diesel*2.68/1000;
-  const energy=elec*0.66/1000;
-  const feedE=feed*0.6;                          // tCO2e per t feed (supply chain)
-  const fertE=fert*5.5/1000;
-  const transport=(feed*0.05)+(head*0.02);
-  const gross=enteric+manure+fuel+energy+feedE+fertE+transport;
+  const head=+$('i-head').value||0, diesel=+$('i-diesel').value||0, elec=+$('i-elec').value||0,
+        feed=+$('i-feed').value||0, fert=+$('i-fert').value||0, milk=+$('i-milk').value||0,
+        trees=+$('i-trees').value||0, pasture=+$('i-pasture').value||0, cleared=+$('i-cleared').value||0,
+        redpct=+$('i-redpct').value||0, type=$('i-type').value;
+  // --- NGER/IPCC-aligned emission factors (indicative) ---
+  const EF={enteric:{Dairy:3.1,Beef:2.0,Mixed:2.6,Feedlot:2.2}[type], manure:0.55, diesel:2.68, elec:0.66,
+            feed:0.6, fert:5.5, treeSeq:6.0, pastSeq:0.5, clearing:120};
+  const enteric=head*EF.enteric, manure=head*EF.manure, fuel=diesel*EF.diesel/1000, energy=elec*EF.elec/1000,
+        feedE=feed*EF.feed, fertE=fert*EF.fert/1000, transport=(feed*0.05)+(head*0.02);
+  const landUse=cleared*EF.clearing, seq=trees*EF.treeSeq+pasture*EF.pastSeq;
+  const grossAct=enteric+manure+fuel+energy+feedE+fertE+transport;
+  const gross=grossAct+landUse, net=Math.max(0,gross-seq);
   const intensity=milk>0?(gross*1000/milk):0;
-  const accu=Math.round(gross*0.12);             // 12% addressable
-  const parts=[["Enteric",enteric],["Manure",manure],["Feed",feedE],["Energy",energy],["Fuel",fuel],["Fertiliser",fertE],["Transport",transport]];
+  const s1=enteric+manure+fuel+fertE+landUse, s2=energy, s3=feedE+transport;
+  // benchmarks (all reference figures)
+  const perHead=head>0?(net/head):0, perLitre=intensity, perPerson=Math.round(net/15);
+  // ACCU: baseline − project
+  const baseline=net, project=net*(1-redpct/100), reduction=baseline-project, buffer=0.05;
+  const accus=Math.max(0,Math.round(reduction*(1-buffer))), revenue=accus*38;
+  const rows=[
+    ['Enteric CH₄', head+' head', EF.enteric+' t/head · IPCC T2', enteric],
+    ['Manure CH₄/N₂O', head+' head', EF.manure+' t/head · IPCC', manure],
+    ['Feed (embedded, Scope 3)', feed+' t', EF.feed+' t/t · LCA db', feedE],
+    ['Energy (Scope 2)', elec.toLocaleString()+' kWh', EF.elec+' kg/kWh · NGER', energy],
+    ['Fuel — diesel', diesel.toLocaleString()+' L', EF.diesel+' kg/L · NGER', fuel],
+    ['Fertiliser N₂O', fert.toLocaleString()+' kg', EF.fert+' kg/kg · IPCC', fertE],
+    ['Transport', '—', 'route estimate', transport],
+    ['Land-use change (clearing)', cleared+' ha', EF.clearing+' t/ha · indic.', landUse],
+    ['Sequestration (trees+pasture)', (trees+pasture)+' ha', '−'+EF.treeSeq+'/−'+EF.pastSeq+' t/ha · indic.', -seq],
+  ];
+  const fmt=x=>Math.round(x).toLocaleString();
   $('input-result').innerHTML=`
    <div class="result">
-     <div><div class="big">${Math.round(gross).toLocaleString()}</div><div class="rl">t CO₂-e / year (gross estimate)</div></div>
+     <div><div class="big">${fmt(net)}</div><div class="rl">t CO₂-e / year (net)</div></div>
      <div>
        <div class="rl"><b style="color:#fff">${$('i-name').value}</b> · ${$('i-state').value} · ${type} · ${head} head</div>
-       <div class="rl" style="margin-top:6px">Product carbon intensity ≈ <b style="color:#e9c768">${intensity.toFixed(2)}</b> kg CO₂-e / L milk · ACCU potential ≈ <b style="color:#e9c768">${accu}</b>/yr (~$${(accu*38).toLocaleString()})</div>
-       <div class="split">${parts.map(p=>`<div class="s">${p[0]} <b>${Math.round(p[1])} t</b></div>`).join("")}</div>
+       <div class="rl" style="margin-top:6px">Gross <b style="color:#fff">${fmt(gross)} t</b> · Sequestered <b style="color:#e9c768">−${fmt(seq)} t</b> · Intensity <b style="color:#e9c768">${intensity.toFixed(2)}</b> kg CO₂-e / L</div>
+       <div class="split">
+         <div class="s">Scope 1 <b>${fmt(s1)} t</b></div>
+         <div class="s">Scope 2 <b>${fmt(s2)} t</b></div>
+         <div class="s">Scope 3 <b>${fmt(s3)} t</b></div>
+       </div>
      </div>
    </div>
-   <p class="sub" style="margin-top:14px">Indicative estimate using simplified IPCC/NGER-style factors for demonstration. The full platform applies audited Tier-2 factors and your live operational data. <button class="btn-ghost" style="padding:8px 14px;border-radius:9px;border:1.5px solid var(--hair)" onclick="openModal()">Connect this farm to the network</button></p>`;
+
+   <div class="bench">
+     <div class="bc"><div class="bv">${perHead.toFixed(1)}</div><div class="bl">t CO₂-e / head</div><div class="bref">industry ref ≈ 5–8</div></div>
+     <div class="bc"><div class="bv">${perLitre.toFixed(2)}</div><div class="bl">kg CO₂-e / L milk (or /kg beef)</div><div class="bref">industry ref ≈ 1.0–1.4</div></div>
+     <div class="bc"><div class="bv">${perPerson.toLocaleString()}</div><div class="bl">≈ average Australians' yearly footprint</div><div class="bref">~15 t CO₂-e / person / yr</div></div>
+   </div>
+
+   <div class="panel" style="margin-top:16px">
+     <h3>Carbon credit potential — baseline − project</h3>
+     <div class="ph">Planned reduction ${redpct}% · 1 ACCU = 1 t CO₂-e · $38/ACCU · 5% risk buffer</div>
+     <div class="accueq">
+       <span class="b">Baseline ${fmt(baseline)} t</span><span class="op">−</span>
+       <span class="b">Project ${fmt(project)} t</span><span class="op">=</span>
+       <span class="b">Reduction ${fmt(reduction)} t</span><span class="op">→</span>
+       <span class="g">${accus.toLocaleString()} ACCUs</span><span class="op">≈</span>
+       <span class="g">$${revenue.toLocaleString()}/yr</span>
+     </div>
+   </div>
+
+   <div class="panel" style="margin-top:16px">
+     <h3>Transparent data &amp; factors</h3><div class="ph">Every source is traceable to an activity and an NGER/IPCC-aligned factor · indicative</div>
+     <table class="factbl"><tr><th>Source</th><th>Activity</th><th>Factor · basis</th><th class="n">t CO₂-e</th></tr>
+       ${rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td class="n" style="color:${r[3]<0?'#4e9d52':'#16201a'}">${r[3]<0?'−':''}${fmt(Math.abs(r[3]))}</td></tr>`).join('')}
+       <tr style="background:#faf9f8"><td><b>Net</b></td><td></td><td></td><td class="n"><b>${fmt(net)}</b></td></tr>
+     </table>
+   </div>
+
+   <p class="sub" style="margin-top:14px"><b>Indicative estimate.</b> Uses NGER / IPCC-aligned factors including land &amp; vegetation. Real ACCUs require a project registered under an approved Clean Energy Regulator method, an approved baseline, and independent verification. <button class="btn-ghost" style="padding:8px 14px;border-radius:9px;border:1.5px solid var(--hair)" onclick="go('methods')">See methods &amp; standards</button> <button class="btn-ghost" style="padding:8px 14px;border-radius:9px;border:1.5px solid var(--hair)" onclick="openModal()">Connect this farm</button></p>`;
   $('input-result').scrollIntoView({behavior:'smooth',block:'center'});
 }
 
