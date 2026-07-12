@@ -303,6 +303,66 @@ table.t tr:hover td{background:#fbfbfa}
 .res-grid .rc .v{font-family:var(--serif);font-size:22px;color:var(--forest)}
 .res-grid .rc .l{font-size:11px;color:var(--muted);margin-top:3px}
 @media(max-width:820px){.res-grid{grid-template-columns:repeat(2,1fr)}.res-hero{grid-template-columns:1fr}}
+
+/* ===== INDUSTRY CHOOSER ===== */
+#chooser{position:fixed;inset:0;z-index:80;background:radial-gradient(900px 500px at 75% -10%,#244e30 0%,transparent 60%),linear-gradient(160deg,#13311e,#0f271a);display:flex;align-items:center;justify-content:center;padding:24px}
+#chooser.hide{display:none}
+.ch-inner{max-width:900px;width:100%;text-align:center;color:#fff}
+.ch-brand{display:inline-flex;align-items:center;gap:10px;margin-bottom:22px}
+.ch-brand .leafmark{width:40px;height:40px}
+.ch-brand b{font-family:var(--serif);font-size:22px;color:#fff}
+.ch-brand span{display:block;font-size:10px;letter-spacing:.18em;color:var(--moss);font-weight:700;text-transform:uppercase;text-align:left}
+.ch-inner h1{font-family:var(--serif);font-size:36px;margin:0 0 8px}
+.ch-inner p.s{color:#cfe3c6;font-size:15px;margin:0 0 30px}
+.ch-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.ch-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:28px 24px;cursor:pointer;transition:all .18s;text-align:left}
+.ch-card:hover{background:rgba(107,166,68,.18);border-color:var(--moss);transform:translateY(-3px)}
+.ch-card .ic{width:56px;height:56px;border-radius:14px;background:var(--moss);display:grid;place-items:center;margin-bottom:16px}
+.ch-card .ic svg{width:30px;height:30px}
+.ch-card h3{font-family:var(--serif);font-size:23px;color:#fff;margin:0 0 6px}
+.ch-card p{color:#bfd9b1;font-size:13px;margin:0 0 14px;line-height:1.5}
+.ch-card .st{display:flex;gap:16px;border-top:1px solid rgba(255,255,255,.12);padding-top:12px}
+.ch-card .st div b{font-family:var(--serif);font-size:17px;color:#fff;display:block}
+.ch-card .st div span{font-size:10.5px;color:#9cc18c}
+.ind-switch{display:inline-flex;align-items:center;gap:6px;background:var(--mint);border:1px solid var(--hair);border-radius:20px;padding:4px;margin-right:8px}
+.ind-switch button{border:none;background:none;padding:5px 12px;border-radius:16px;font-size:12px;font-weight:700;color:var(--muted);cursor:pointer;font-family:inherit}
+.ind-switch button.on{background:var(--forest);color:#fff}
+@media(max-width:760px){.ch-cards{grid-template-columns:1fr}}
+
+/* ===== HORTICULTURE (ledger aesthetic) ===== */
+.hz{--hpaper:#E7EAE3;--hpanel:#F5F6F1;--hink:#1C221C;--hmuted:#6E7569;--hrule:#C9CDC1;--hsoft:#DDE0D6;
+    --hs1:#8C3B1E;--hs2:#2E6F7E;--hs3:#B08429;--hrem:#3C6140;--hover:#A8352B;--hunder:#4C7A4A;--hmid:#C08A2E;
+    --hmono:ui-monospace,Menlo,Consolas,monospace}
+.hz .hpanel{background:var(--hpanel);border:1px solid var(--hrule);border-radius:4px;padding:14px 16px;margin-bottom:14px}
+.hz .hpanel h3{font-family:var(--sans);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--hmuted);font-weight:700;margin:0 0 10px;padding-bottom:7px;border-bottom:1px solid var(--hsoft)}
+.hz .hkpis{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:14px}
+.hz .hkpi{background:var(--hpanel);border:1px solid var(--hrule);border-radius:4px;padding:12px}
+.hz .hkpi .l{font-size:9.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--hmuted);font-weight:700}
+.hz .hkpi .v{font-family:var(--hmono);font-size:22px;color:var(--hink);margin-top:5px;line-height:1}
+.hz .hkpi .d{font-size:10px;color:var(--hmuted);margin-top:4px}
+.hz .hkpi.accent .v{color:var(--hs3)}
+.hz table.hl{width:100%;border-collapse:collapse;font-size:11.5px}
+.hz table.hl th{text-align:left;font-size:9.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--hmuted);border-bottom:1px solid var(--hrule);padding:7px 8px;font-weight:700}
+.hz table.hl td{padding:7px 8px;border-bottom:1px solid var(--hsoft);font-family:var(--hmono);font-size:11px}
+.hz table.hl td.t{font-family:var(--sans);font-size:12px}
+.hz table.hl tr:hover td{background:#EDEFE8}
+.hz .htabs{display:flex;gap:2px;border-bottom:2px solid var(--hrule);margin-bottom:16px;overflow-x:auto}
+.hz .htabs button{border:none;background:none;padding:10px 14px;font-family:inherit;font-size:12px;font-weight:700;color:var(--hmuted);cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;margin-bottom:-2px}
+.hz .htabs button.on{color:var(--hink);border-bottom-color:var(--hs3)}
+.hz .hgrid2{display:grid;grid-template-columns:1.4fr 1fr;gap:14px}
+.hz .hgrid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.hz .hbar{display:flex;align-items:center;gap:8px;margin:6px 0}
+.hz .hbar .n{width:130px;font-size:11.5px;font-family:var(--sans)}
+.hz .hbar .tr{flex:1;height:14px;background:#E4E7DD;border-radius:2px;overflow:hidden}
+.hz .hbar .tr i{display:block;height:100%}
+.hz .hbar .v{width:74px;text-align:right;font-family:var(--hmono);font-size:11px}
+.hz .flag{display:inline-block;font-size:9px;font-weight:700;padding:1px 6px;border-radius:2px;color:#fff;font-family:var(--sans)}
+.hz .hnote{background:#F1EDE1;border:1px solid #DDD3B8;border-radius:4px;padding:11px 13px;font-size:11.5px;color:#6b5a2e;margin-bottom:14px}
+.hz .lever{display:flex;align-items:center;gap:10px;margin:10px 0}
+.hz .lever .ln{width:190px;font-size:12px}
+.hz .lever input[type=range]{flex:1;accent-color:#3C6140}
+.hz .lever .lv{width:86px;text-align:right;font-family:var(--hmono);font-size:11.5px}
+@media(max-width:900px){.hz .hkpis{grid-template-columns:repeat(3,1fr)}.hz .hgrid2,.hz .hgrid3{grid-template-columns:1fr}}
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -352,6 +412,33 @@ table.t tr:hover td{background:#fbfbfa}
 <body>
 
 <!-- ============ NAV ============ -->
+<!-- ============ INDUSTRY CHOOSER ============ -->
+<div id="chooser">
+  <div class="ch-inner">
+    <div class="ch-brand">
+      <div class="leafmark"><svg viewBox="0 0 24 24" fill="#12301d"><path d="M12 2C7 4 4 8 4 13c0 4 3 8 8 9 0-6 2-9 7-12-4 0-7 1-9 4 1-5 1-8 2-12z"/></svg></div>
+      <div><b>Carbon Mgt</b><span>LCCIP</span></div>
+    </div>
+    <h1>Which industry are you measuring?</h1>
+    <p class="s">LCCIP delivers life-cycle carbon intelligence across Australian agriculture. Choose a sector to begin.</p>
+    <div class="ch-cards">
+      <div class="ch-card" onclick="pickIndustry('farm')">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#12301d" stroke-width="2"><path d="M3 17h4l2-5 3 8 3-11 2 8h4"/><circle cx="6" cy="20" r="1.6"/><circle cx="18" cy="20" r="1.6"/></svg></div>
+        <h3>Farm — Cattle</h3>
+        <p>Dairy, beef, mixed and feedlot. Enteric methane, manure, feed and ACCU monetisation.</p>
+        <div class="st"><div><b>7</b><span>farms</span></div><div><b>27.0k</b><span>tCO₂-e/yr</span></div><div><b>3,090</b><span>ACCUs/yr</span></div></div>
+      </div>
+      <div class="ch-card" onclick="pickIndustry('hort')">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#12301d" stroke-width="2"><path d="M12 22V9"/><path d="M12 9c0-3 2-5 5-5 0 3-2 5-5 5z"/><path d="M12 12c0-3-2-5-5-5 0 3 2 5 5 5z"/><path d="M7 22h10"/></svg></div>
+        <h3>Horticulture</h3>
+        <p>Orchards, vineyards, protected cropping and open field. Packaging, soil N₂O, energy and water.</p>
+        <div class="st"><div><b>12</b><span>farms</span></div><div><b>3.9k</b><span>tCO₂-e/yr</span></div><div><b>111</b><span>factors</span></div></div>
+      </div>
+    </div>
+    <p style="font-size:11.5px;color:#8fae84;margin-top:24px">Demo prototype · figures are indicative. You can switch industry at any time.</p>
+  </div>
+</div>
+
 <header>
   <div class="wrap nav">
     <div class="brand" onclick="go('home')" style="cursor:pointer">
@@ -369,6 +456,7 @@ table.t tr:hover td{background:#fbfbfa}
       <button data-v="about" onclick="go('about')">About / Impact</button>
       <button data-v="contact" onclick="go('contact')">Contact</button>
     </nav>
+    <span class="ind-switch"><button id="sw-farm" class="on" onclick="pickIndustry('farm')">Farm</button><button id="sw-hort" onclick="pickIndustry('hort')">Horticulture</button></span>
     <button class="cta" id="authbtn" onclick="openModal()">Subscribe</button>
   </div>
 </header>
@@ -836,6 +924,151 @@ table.t tr:hover td{background:#fbfbfa}
   </div>
 </section>
 
+
+<!-- ================== HORTICULTURE VIEWS ================== -->
+<section class="view" data-view="h-home">
+  <div class="hero">
+    <div>
+      <span class="kicker">Horticulture · life-cycle carbon intelligence</span>
+      <h1>The carbon in <span class="accent">every crop you grow</span> — measured.</h1>
+      <p class="lead">Orchards, vineyards, protected cropping and open field. LCCIP tracks emissions from soil to shelf — packaging, energy, soil N₂O, freight and water — and turns them into a defensible carbon intensity per kilogram sold.</p>
+      <div class="hero-cta">
+        <button class="btn-lg btn-primary" onclick="openModal()">Subscribe to the network</button>
+        <button class="btn-lg btn-ghost" onclick="go('h-how')">See how it works</button>
+      </div>
+      <div class="hero-stats">
+        <div class="hs"><b id="hh-farms">12</b><span>growers connected</span></div>
+        <div class="hs"><b id="hh-net">3.2k</b><span>tCO₂-e/yr net</span></div>
+        <div class="hs"><b id="hh-ci">0.48</b><span>avg kg CO₂-e / kg</span></div>
+      </div>
+    </div>
+    <div class="mapcard">
+      <div class="ml"><b>Grower network · Australia</b><span class="live"><i></i>LIVE</span></div>
+      <div id="hausmap"></div>
+      <div class="cap">12 growers · 6 states · tomatoes to almonds</div>
+    </div>
+  </div>
+
+  <div class="trust-strip">
+    <span class="ts">NGER · IPCC factors</span><span class="ts">111-factor library</span><span class="ts">Scope 1·2·3</span><span class="ts">Cradle-to-farm-gate LCA</span><span class="ts">Data-confidence rated</span>
+  </div>
+
+  <div class="sec-head" style="margin-top:34px"><span class="kicker">Why horticulture is different</span><h2 class="h-lead">Your footprint is mostly <i>upstream</i></h2>
+    <p class="sub">Unlike livestock, horticulture's biggest emissions aren't from the paddock — they're in packaging, fertiliser and freight. Scope 3 is <b>60%</b> of the network total.</p></div>
+  <div class="cards c4">
+    <div class="tile"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#2c5f2d" stroke-width="2"><path d="M3 8l9-5 9 5v8l-9 5-9-5z"/><path d="M3 8l9 5 9-5"/><path d="M12 13v8"/></svg></div><h3>Packaging</h3><p>The single largest source — 22% of network emissions. Plastic and cardboard, per kg sold.</p></div>
+    <div class="tile"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#2c5f2d" stroke-width="2"><path d="M12 22V12"/><path d="M5 12h14"/><path d="M7 12a5 5 0 0110 0"/></svg></div><h3>Soil N₂O</h3><p>17% — nitrogen fertiliser releases a gas 265× more potent than CO₂.</p></div>
+    <div class="tile"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#2c5f2d" stroke-width="2"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div><h3>Energy &amp; fuel</h3><p>23% combined — protected cropping is electricity-hungry; orchards burn diesel.</p></div>
+    <div class="tile"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#2c5f2d" stroke-width="2"><path d="M3 17h13v-6H3z"/><path d="M16 13h3l2 3v1h-5z"/><circle cx="6.5" cy="19" r="1.6"/><circle cx="17.5" cy="19" r="1.6"/></svg></div><h3>Freight &amp; water</h3><p>Cold chain, road freight and irrigation — the hidden cost of getting produce to market.</p></div>
+  </div>
+
+  <div class="sec-head" style="margin-top:40px"><span class="kicker">Plans</span><h2 class="h-lead">Subscribe to see any grower</h2></div>
+  <div class="pricing">
+    <div class="plan"><h3>Grower</h3><div class="price">$0<span>/mo</span></div><ul><li>Your own crop dashboard</li><li>Data input &amp; LCA</li><li>Intensity vs target</li><li>AI recommendations</li></ul><button class="btn-lg btn-ghost" onclick="openModal()">Start free</button></div>
+    <div class="plan feat"><div class="tag">MOST POPULAR</div><h3>Network</h3><div class="price">$149<span>/mo</span></div><ul><li>View any grower in Australia</li><li>Crop &amp; state benchmarking</li><li>Scope 3 supply-chain data</li><li>Abatement modelling</li></ul><button class="btn-lg btn-primary" onclick="openModal()">Subscribe</button></div>
+    <div class="plan"><h3>Enterprise</h3><div class="price">Custom</div><ul><li>API &amp; data export</li><li>Retailer Scope 3 reporting</li><li>Packaging optimisation</li><li>Dedicated support</li></ul><button class="btn-lg btn-ghost" onclick="go('h-contact')">Contact sales</button></div>
+  </div>
+</section>
+
+<section class="view" data-view="h-how">
+  <div class="sec-head"><span class="kicker">How it works</span><h2 class="h-lead">From crop inputs to a defensible carbon number</h2>
+    <p class="sub">The same LCCIP pipeline, tuned for horticulture — with a 111-factor library and honest data-confidence grading.</p></div>
+  <div class="steps" id="h-stepgrid"></div>
+  <div class="sec-head" style="margin-top:40px"><span class="kicker">Under the hood</span><h2 class="h-lead">The horticulture emission model</h2></div>
+  <div class="eqbox" style="margin-bottom:14px">Net emissions <span class="op">=</span> Σ (&nbsp;<b>activity</b> <span class="op">×</span> <b>emission factor</b>&nbsp;) <span class="op">−</span> <b>soil &amp; biomass removals</b></div>
+  <div class="cards c2">
+    <div class="tile"><h3>12 emission sources tracked</h3>
+      <p style="font-size:12.5px;color:var(--muted);margin-top:6px">Fuel · electricity · soil N₂O · fertiliser (upstream) · lime &amp; urea · chemicals · packaging · transport · waste · refrigeration · water · planting materials — each mapped to Scope 1, 2 or 3.</p></div>
+    <div class="tile"><h3>Carbon intensity is the output</h3>
+      <p style="font-size:12.5px;color:var(--muted);margin-top:6px">Emissions ÷ marketable yield = <b>kg CO₂-e per kg sold</b> — compared against a crop-specific target so growers know if they're over or under.</p></div>
+  </div>
+</section>
+
+<section class="view" data-view="h-dash">
+  <div class="sec-head"><span class="kicker">Carbon Mgt · horticulture</span><h2 class="h-lead">Farm-gate carbon ledger</h2></div>
+  <div id="h-gate"></div>
+  <div id="h-body" style="display:none">
+    <div class="toolbar">
+      <div class="grp"><label>Grower</label><select id="hfarmsel" onchange="renderHDash()"></select></div>
+      <div class="grp"><label>View</label><div class="chips" id="hviewchips"></div></div>
+      <span class="live-pill"><i></i>Live · 12 growers</span>
+    </div>
+    <div class="hz"><div id="h-dash-content"></div></div>
+  </div>
+</section>
+
+<section class="view" data-view="h-input">
+  <div class="sec-head"><span class="kicker">Grower data input</span><h2 class="h-lead">Enter your crop data — see emissions instantly</h2>
+    <p class="sub">Twelve source categories, NGER/IPCC-aligned factors, and an honest confidence rating. Indicative demonstration.</p></div>
+  <div class="panel" style="margin-bottom:18px">
+    <div class="form-grid">
+      <div class="fld"><label>Grower name</label><input id="hi-name" value="My Orchard"></div>
+      <div class="fld"><label>State</label><select id="hi-state"><option>NSW</option><option>VIC</option><option>QLD</option><option>SA</option><option>WA</option><option>TAS</option></select></div>
+      <div class="fld"><label>Crop</label><select id="hi-crop"><option>Apples</option><option>Tomatoes</option><option>Strawberries</option><option>Avocados</option><option>Mangoes</option><option>Wine Grapes</option><option>Potatoes</option><option>Cherries</option><option>Lettuce</option><option>Blueberries</option><option>Almonds</option><option>Carrots</option></select></div>
+      <div class="fld"><label>Production system</label><select id="hi-sys"><option>Orchard</option><option>Protected Cropping</option><option>Open Field</option><option>Vineyard</option></select></div>
+      <div class="fld"><label>Area (ha)</label><input id="hi-area" type="number" value="65"></div>
+      <div class="fld"><label>Marketable yield (kg/yr)</label><input id="hi-yield" type="number" value="640000"></div>
+      <div class="fld"><label>Diesel (L/yr)</label><input id="hi-diesel" type="number" value="22000"></div>
+      <div class="fld"><label>Grid electricity (kWh/yr)</label><input id="hi-elec" type="number" value="95000"></div>
+      <div class="fld"><label>Synthetic N (kg N/yr)</label><input id="hi-n" type="number" value="7800"></div>
+      <div class="fld"><label>Plastic packaging (kg/yr)</label><input id="hi-plastic" type="number" value="9500"></div>
+      <div class="fld"><label>Cardboard packaging (kg/yr)</label><input id="hi-card" type="number" value="42000"></div>
+      <div class="fld"><label>Road freight (t·km/yr)</label><input id="hi-freight" type="number" value="185000"></div>
+      <div class="fld"><label>Water supplied (kL/yr)</label><input id="hi-water" type="number" value="310000"></div>
+      <div class="fld"><label>Pesticide active ingredient (kg/yr)</label><input id="hi-chem" type="number" value="850"></div>
+      <div class="fld"><label>Soil + biomass removals (t CO₂-e/yr)</label><input id="hi-rem" type="number" value="86"></div>
+    </div>
+    <button class="btn-lg btn-primary" style="margin-top:18px" onclick="calcHort()">Calculate emissions</button>
+  </div>
+  <div id="h-input-result"></div>
+</section>
+
+<section class="view" data-view="h-ai">
+  <div class="sec-head"><span class="kicker">AI recommendations</span><h2 class="h-lead">Abatement, ranked by impact</h2></div>
+  <div id="h-ai-gate"></div>
+  <div id="h-ai-body" style="display:none">
+    <div class="toolbar"><div class="grp"><label>Grower</label><select id="haifarmsel" onchange="renderHAI()"></select></div><span class="live-pill"><i></i>Model live</span></div>
+    <div id="h-ai-content"></div>
+  </div>
+</section>
+
+<section class="view" data-view="h-about">
+  <div class="sec-head"><span class="kicker">About / impact</span><h2 class="h-lead">Carbon intelligence for Australian horticulture</h2>
+    <p class="sub">Retailers and exporters now demand farm-level Scope 3 data. LCCIP gives growers a defensible number — and a plan to lower it.</p></div>
+  <div class="impact">
+    <div class="im"><b>12</b><span>growers connected</span></div>
+    <div class="im"><b>3.9k</b><span>tCO₂-e/yr gross</span></div>
+    <div class="im"><b>677 t</b><span>removals captured</span></div>
+    <div class="im"><b>111</b><span>emission factors</span></div>
+  </div>
+  <div class="cards c3">
+    <div class="tile"><h3>Our mission</h3><p>Give every Australian grower a carbon number they can defend to a retailer, an auditor or an export market — and the intelligence to reduce it.</p></div>
+    <div class="tile"><h3>Honest by design</h3><p>We grade every factor by confidence. Of 111 factors, only 10 are Australian official — we show you exactly which numbers are solid and which are proxies to replace.</p></div>
+    <div class="tile"><h3>Why it matters</h3><p>Horticulture's footprint is 60% Scope 3 — packaging, fertiliser and freight. That's where the reductions (and the supply-chain pressure) actually are.</p></div>
+  </div>
+</section>
+
+<section class="view" data-view="h-contact">
+  <div class="sec-head"><span class="kicker">Contact</span><h2 class="h-lead">Talk to us about a horticulture pilot</h2></div>
+  <div class="contact-grid">
+    <div class="panel">
+      <div class="form-grid" style="grid-template-columns:1fr 1fr">
+        <div class="fld"><label>Name</label><input placeholder="Your name"></div>
+        <div class="fld"><label>Organisation</label><input placeholder="Farm / packer / retailer"></div>
+        <div class="fld"><label>Email</label><input type="email" placeholder="you@org.com.au"></div>
+        <div class="fld"><label>Crop</label><input placeholder="e.g. apples, table grapes"></div>
+      </div>
+      <div class="fld" style="margin-top:16px"><label>Message</label><input style="height:90px" placeholder="Tell us about your operation…"></div>
+      <button class="btn-lg btn-primary" style="margin-top:16px" onclick="alert('Thanks — this is a demo form. We will be in touch.')">Send message</button>
+    </div>
+    <div class="contact-info">
+      <p><b>Pilot program</b><br>Onboarding growers across NSW, VIC, QLD, SA, WA &amp; TAS.</p>
+      <p><b>Email</b><br>hort@lccip.au</p>
+      <p><b>Retail &amp; export</b><br>Scope 3 reporting for packers, retailers and exporters.</p>
+      <p style="font-size:12px;margin-top:18px">Demo prototype · contact details illustrative.</p>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer>
@@ -912,7 +1145,7 @@ function closeModal(){document.getElementById('modal').classList.remove('show');
 function subscribe(){
   subscribed=true; closeModal();
   document.getElementById('authbtn').textContent='Subscribed ✓';
-  refreshLocks(); go('dashboard');
+  refreshLocks(); go(INDUSTRY==='hort'?'h-dash':'dashboard');
 }
 function refreshLocks(){
   document.querySelectorAll('#navlinks button').forEach(b=>{
@@ -1372,7 +1605,330 @@ async function runAdvanced(){
 }
 
 
+/* =================== INDUSTRY ROUTING =================== */
+const HFARMS=[{"id": "F001", "name": "Riverina Tomatoes", "state": "NSW", "crop": "Tomatoes", "sys": "Protected Cropping", "area": 18.0, "gross": 200.6, "net": 198.9, "rem": 1.7, "s1": 46.4, "s2": 42.6, "s3": 111.6, "ci": 0.659, "tgt": 0.55, "yieldkg": 302824, "perha": 11.14, "mNet": [17.5, 15.6, 15.8, 18.4, 17.8, 15.5, 16.6, 15.7, 15.7, 16.9, 17.0, 16.2], "mCI": [0.632, 0.691, 0.673, 0.612, 0.627, 0.682, 0.657, 0.688, 0.69, 0.642, 0.648, 0.668], "elec": 66621, "diesel": 2524, "water": 15141, "pack": 28768, "src": {"Fuel": 10.1, "Electricity": 46.0, "Soil N\u2082O": 30.9, "Fertiliser (upstream)": 17.3, "Lime & urea": 6.0, "Chemicals": 8.6, "Packaging": 58.1, "Transport": 6.8, "Waste": 4.0, "Refrigeration": 1.4, "Water": 3.0, "Planting materials": 8.4}}, {"id": "F002", "name": "Central West Apples", "state": "NSW", "crop": "Apples", "sys": "Orchard", "area": 65.0, "gross": 180.5, "net": 94.7, "rem": 85.8, "s1": 79.2, "s2": 11.9, "s3": 89.4, "ci": 0.281, "tgt": 0.24, "yieldkg": 337445, "perha": 2.78, "mNet": [7.1, 8.1, 8.1, 7.8, 8.4, 7.6, 8.2, 8.0, 8.5, 7.8, 7.9, 7.1], "mCI": [0.299, 0.281, 0.264, 0.28, 0.278, 0.267, 0.283, 0.288, 0.284, 0.281, 0.27, 0.302], "elec": 18559, "diesel": 9353, "water": 16872, "pack": 16872, "src": {"Fuel": 37.3, "Electricity": 12.8, "Soil N\u2082O": 40.2, "Fertiliser (upstream)": 22.5, "Lime & urea": 8.7, "Chemicals": 19.5, "Packaging": 23.7, "Transport": 7.6, "Waste": 4.5, "Refrigeration": 0.4, "Water": 3.4, "Planting materials": 0.1}}, {"id": "F003", "name": "Yarra Strawberries", "state": "VIC", "crop": "Strawberries", "sys": "Protected Cropping", "area": 24.0, "gross": 353.6, "net": 351.3, "rem": 2.3, "s1": 61.5, "s2": 70.8, "s3": 221.4, "ci": 0.855, "tgt": 0.78, "yieldkg": 412447, "perha": 14.73, "mNet": [30.7, 33.0, 29.3, 27.5, 28.2, 28.3, 31.6, 28.7, 26.7, 27.2, 27.3, 33.0], "mCI": [0.838, 0.81, 0.856, 0.873, 0.866, 0.859, 0.834, 0.863, 0.894, 0.877, 0.876, 0.808], "elec": 90738, "diesel": 3382, "water": 20622, "pack": 63929, "src": {"Fuel": 13.5, "Electricity": 78.9, "Soil N\u2082O": 41.2, "Fertiliser (upstream)": 23.0, "Lime & urea": 8.0, "Chemicals": 11.5, "Packaging": 145.9, "Transport": 9.3, "Waste": 5.5, "Refrigeration": 1.4, "Water": 4.1, "Planting materials": 11.2}}, {"id": "F004", "name": "Sunshine Avocados", "state": "QLD", "crop": "Avocados", "sys": "Orchard", "area": 70.0, "gross": 191.4, "net": 99.0, "rem": 92.4, "s1": 84.6, "s2": 12.6, "s3": 94.3, "ci": 0.291, "tgt": 0.32, "yieldkg": 341125, "perha": 2.73, "mNet": [7.6, 7.2, 7.6, 9.0, 7.8, 8.0, 8.6, 9.0, 8.7, 9.1, 8.1, 8.2], "mCI": [0.292, 0.296, 0.302, 0.273, 0.295, 0.318, 0.308, 0.289, 0.281, 0.284, 0.288, 0.269], "elec": 18761, "diesel": 9839, "water": 17056, "pack": 17056, "src": {"Fuel": 39.3, "Electricity": 14.3, "Soil N\u2082O": 43.3, "Fertiliser (upstream)": 24.2, "Lime & urea": 9.4, "Chemicals": 21.0, "Packaging": 24.0, "Transport": 7.7, "Waste": 4.5, "Refrigeration": 0.4, "Water": 3.4, "Planting materials": 0.1}}, {"id": "F005", "name": "Mareeba Mangoes", "state": "QLD", "crop": "Mangoes", "sys": "Orchard", "area": 90.0, "gross": 308.8, "net": 190.0, "rem": 118.8, "s1": 109.0, "s2": 17.4, "s3": 182.4, "ci": 0.404, "tgt": 0.48, "yieldkg": 470969, "perha": 3.43, "mNet": [14.2, 16.4, 14.4, 17.5, 16.7, 15.2, 15.5, 14.0, 16.6, 17.0, 15.0, 17.4], "mCI": [0.415, 0.398, 0.41, 0.397, 0.399, 0.402, 0.419, 0.437, 0.396, 0.389, 0.395, 0.397], "elec": 25903, "diesel": 12824, "water": 23548, "pack": 23548, "src": {"Fuel": 51.0, "Electricity": 19.7, "Soil N\u2082O": 55.6, "Fertiliser (upstream)": 31.1, "Lime & urea": 12.0, "Chemicals": 27.0, "Packaging": 33.1, "Transport": 67.8, "Waste": 6.3, "Refrigeration": 0.4, "Water": 4.7, "Planting materials": 0.1}}, {"id": "F006", "name": "Barossa Grapes", "state": "SA", "crop": "Wine Grapes", "sys": "Vineyard", "area": 110.0, "gross": 283.2, "net": 173.6, "rem": 109.6, "s1": 99.0, "s2": 7.6, "s3": 176.6, "ci": 0.176, "tgt": 0.22, "yieldkg": 988026, "perha": 2.57, "mNet": [14.5, 14.7, 14.5, 14.6, 15.2, 15.5, 12.3, 15.4, 16.3, 12.9, 12.3, 15.5], "mCI": [0.176, 0.179, 0.171, 0.169, 0.167, 0.171, 0.19, 0.184, 0.181, 0.174, 0.178, 0.173], "elec": 34580, "diesel": 16197, "water": 49401, "pack": 49401, "src": {"Fuel": 64.2, "Electricity": 9.3, "Soil N\u2082O": 37.8, "Fertiliser (upstream)": 21.1, "Lime & urea": 9.2, "Chemicals": 26.4, "Packaging": 69.4, "Transport": 22.2, "Waste": 13.1, "Refrigeration": 0.4, "Water": 9.9, "Planting materials": 0.1}}, {"id": "F007", "name": "Swan Potatoes", "state": "WA", "crop": "Potatoes", "sys": "Open Field", "area": 85.0, "gross": 572.8, "net": 564.7, "rem": 8.2, "s1": 191.7, "s2": 27.1, "s3": 353.9, "ci": 0.524, "tgt": 0.31, "yieldkg": 1085991, "perha": 6.74, "mNet": [47.3, 45.0, 45.1, 47.9, 47.3, 48.2, 44.6, 47.6, 49.0, 45.9, 48.6, 48.2], "mCI": [0.498, 0.572, 0.581, 0.491, 0.54, 0.493, 0.606, 0.504, 0.492, 0.531, 0.489, 0.49], "elec": 54299, "diesel": 21901, "water": 54299, "pack": 54299, "src": {"Fuel": 81.4, "Electricity": 29.9, "Soil N\u2082O": 105.1, "Fertiliser (upstream)": 58.8, "Lime & urea": 20.9, "Chemicals": 28.1, "Packaging": 76.3, "Transport": 24.4, "Waste": 14.4, "Refrigeration": 0.4, "Water": 10.9, "Planting materials": 122.4}}, {"id": "F008", "name": "Huon Cherries", "state": "TAS", "crop": "Cherries", "sys": "Orchard", "area": 45.0, "gross": 119.0, "net": 59.6, "rem": 59.4, "s1": 55.0, "s2": 2.5, "s3": 61.5, "ci": 0.26, "tgt": 0.56, "yieldkg": 230017, "perha": 2.64, "mNet": [5.1, 5.3, 5.0, 5.0, 5.0, 5.4, 4.9, 4.6, 4.8, 4.8, 5.0, 4.8], "mCI": [0.248, 0.257, 0.254, 0.25, 0.271, 0.252, 0.258, 0.276, 0.289, 0.253, 0.262, 0.25], "elec": 12650, "diesel": 6495, "water": 11500, "pack": 11500, "src": {"Fuel": 25.8, "Electricity": 3.2, "Soil N\u2082O": 27.8, "Fertiliser (upstream)": 15.6, "Lime & urea": 6.0, "Chemicals": 13.5, "Packaging": 16.2, "Transport": 5.2, "Waste": 3.1, "Refrigeration": 0.4, "Water": 2.3, "Planting materials": 0.0}}, {"id": "F009", "name": "Gippsland Lettuce", "state": "VIC", "crop": "Lettuce", "sys": "Open Field", "area": 30.0, "gross": 202.4, "net": 199.5, "rem": 2.9, "s1": 68.6, "s2": 13.2, "s3": 120.6, "ci": 0.591, "tgt": 0.34, "yieldkg": 339546, "perha": 6.75, "mNet": [16.6, 17.1, 16.2, 16.4, 17.0, 16.5, 17.3, 16.2, 16.1, 17.3, 16.4, 16.5], "mCI": [0.616, 0.573, 0.616, 0.58, 0.524, 0.561, 0.566, 0.62, 0.634, 0.544, 0.623, 0.63], "elec": 16977, "diesel": 7966, "water": 16977, "pack": 16977, "src": {"Fuel": 29.6, "Electricity": 14.8, "Soil N\u2082O": 37.1, "Fertiliser (upstream)": 20.7, "Lime & urea": 7.4, "Chemicals": 9.9, "Packaging": 23.9, "Transport": 7.6, "Waste": 4.5, "Refrigeration": 0.4, "Water": 3.4, "Planting materials": 43.2}}, {"id": "F010", "name": "Coffs Blueberries", "state": "NSW", "crop": "Blueberries", "sys": "Protected Cropping", "area": 38.0, "gross": 591.5, "net": 587.8, "rem": 3.6, "s1": 97.0, "s2": 93.7, "s3": 400.8, "ci": 0.887, "tgt": 0.88, "yieldkg": 665154, "perha": 15.56, "mNet": [50.9, 44.3, 44.6, 53.7, 44.5, 47.9, 51.7, 56.5, 44.9, 53.4, 49.1, 46.7], "mCI": [0.87, 0.924, 0.924, 0.849, 0.924, 0.891, 0.868, 0.843, 0.918, 0.851, 0.886, 0.897], "elec": 146333, "diesel": 5551, "water": 33257, "pack": 116401, "src": {"Fuel": 22.1, "Electricity": 101.0, "Soil N\u2082O": 65.2, "Fertiliser (upstream)": 36.5, "Lime & urea": 12.6, "Chemicals": 18.2, "Packaging": 271.2, "Transport": 29.9, "Waste": 8.8, "Refrigeration": 1.4, "Water": 6.7, "Planting materials": 17.8}}, {"id": "F011", "name": "Riverland Almonds", "state": "SA", "crop": "Almonds", "sys": "Orchard", "area": 140.0, "gross": 366.5, "net": 181.7, "rem": 184.8, "s1": 169.4, "s2": 8.4, "s3": 188.7, "ci": 0.263, "tgt": 0.62, "yieldkg": 694988, "perha": 2.62, "mNet": [15.8, 15.6, 15.9, 15.9, 16.3, 16.3, 14.6, 14.4, 14.1, 14.9, 14.6, 13.3], "mCI": [0.249, 0.269, 0.244, 0.243, 0.261, 0.25, 0.273, 0.273, 0.288, 0.274, 0.251, 0.277], "elec": 38224, "diesel": 20010, "water": 34749, "pack": 34749, "src": {"Fuel": 79.4, "Electricity": 10.3, "Soil N\u2082O": 86.5, "Fertiliser (upstream)": 48.4, "Lime & urea": 18.7, "Chemicals": 42.0, "Packaging": 48.8, "Transport": 15.6, "Waste": 9.2, "Refrigeration": 0.4, "Water": 6.9, "Planting materials": 0.2}}, {"id": "F012", "name": "Manjimup Carrots", "state": "WA", "crop": "Carrots", "sys": "Open Field", "area": 75.0, "gross": 490.2, "net": 483.0, "rem": 7.2, "s1": 168.8, "s2": 21.4, "s3": 300.0, "ci": 0.567, "tgt": 0.28, "yieldkg": 855163, "perha": 6.54, "mNet": [40.6, 40.8, 39.9, 40.4, 39.7, 39.4, 40.6, 39.2, 39.8, 42.7, 39.7, 40.3], "mCI": [0.592, 0.534, 0.571, 0.562, 0.593, 0.574, 0.561, 0.604, 0.582, 0.507, 0.574, 0.545], "elec": 42758, "diesel": 19199, "water": 42758, "pack": 42758, "src": {"Fuel": 71.4, "Electricity": 23.5, "Soil N\u2082O": 92.7, "Fertiliser (upstream)": 51.8, "Lime & urea": 18.4, "Chemicals": 24.8, "Packaging": 60.1, "Transport": 19.2, "Waste": 11.4, "Refrigeration": 0.4, "Water": 8.6, "Planting materials": 108.0}}];
+let INDUSTRY='farm';
+const FARM_NAV=[['home','Home'],['how','How It Works'],['dashboard','Dashboard'],['input','Farm Data Input'],['ai','AI Recommendations'],['credit','Carbon Credits'],['methods','Methods & Standards'],['about','About / Impact'],['contact','Contact']];
+const HORT_NAV=[['h-home','Home'],['h-how','How It Works'],['h-dash','Dashboard'],['h-input','Grower Data Input'],['h-ai','AI Recommendations'],['h-about','About / Impact'],['h-contact','Contact']];
+const HGATED=['h-dash','h-ai'];
+
+function pickIndustry(ind){
+  INDUSTRY=ind;
+  document.getElementById('chooser').classList.add('hide');
+  document.getElementById('sw-farm').classList.toggle('on',ind==='farm');
+  document.getElementById('sw-hort').classList.toggle('on',ind==='hort');
+  buildNav();
+  go(ind==='farm'?'home':'h-home');
+}
+function buildNav(){
+  const items = INDUSTRY==='farm'?FARM_NAV:HORT_NAV;
+  document.getElementById('navlinks').innerHTML = items.map(i=>`<button data-v="${i[0]}" onclick="go('${i[0]}')">${i[1]}</button>`).join('');
+  refreshLocks();
+}
+const _origRefresh = refreshLocks;
+refreshLocks = function(){
+  const gated = INDUSTRY==='farm'?GATED:HGATED;
+  document.querySelectorAll('#navlinks button').forEach(b=>{
+    const g=gated.includes(b.dataset.v);
+    b.innerHTML=b.textContent.replace(' 🔒','')+(g&&!subscribed?' <span class="lock">🔒</span>':'');
+  });
+};
+const _origGo = go;
+go = function(v){
+  document.querySelectorAll('.view').forEach(s=>s.classList.toggle('show',s.dataset.view===v));
+  document.querySelectorAll('#navlinks button').forEach(b=>b.classList.toggle('active',b.dataset.v===v));
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(v==='dashboard') renderDashView();
+  if(v==='ai') renderAIView();
+  if(v==='credit') renderCreditView();
+  if(v==='how') renderHow();
+  if(v==='h-home') hBoot();
+  if(v==='h-how') renderHHow();
+  if(v==='h-dash') renderHDashView();
+  if(v==='h-ai') renderHAIView();
+};
+
+/* =================== HORTICULTURE =================== */
+const HSRC=['Fuel','Electricity','Soil N₂O','Fertiliser (upstream)','Lime & urea','Chemicals','Packaging','Transport','Waste','Refrigeration','Water','Planting materials'];
+const HCOL={'Packaging':'#B08429','Soil N₂O':'#8C3B1E','Fuel':'#8C3B1E','Electricity':'#2E6F7E','Fertiliser (upstream)':'#B08429',
+ 'Planting materials':'#B08429','Chemicals':'#B08429','Transport':'#B08429','Lime & urea':'#8C3B1E','Waste':'#B08429','Water':'#2E6F7E','Refrigeration':'#8C3B1E'};
+const HSTEPS=[['Crop data capture','Yield, area, fuel, energy, fertiliser, packaging, freight, water.'],
+['Factor library','111 NGER / IPCC factors — each graded by confidence.'],
+['LCA engine','Cradle-to-farm-gate · 12 sources → CO₂-e by Scope 1·2·3.'],
+['Removals','Soil carbon and biomass subtracted to give net.'],
+['Intensity','Net ÷ marketable yield = kg CO₂-e per kg sold.'],
+['Benchmark','Compared to a crop-specific target — over or under.'],
+['Abatement','AI ranks levers by tonnes saved and cost.'],
+['Report','Retailer- and auditor-ready Scope 3 disclosure.'],
+['Improve','Results feed the next season.']];
+
+function hStats(){
+  const gross=HFARMS.reduce((a,f)=>a+f.gross,0), net=HFARMS.reduce((a,f)=>a+f.net,0);
+  const ci=HFARMS.reduce((a,f)=>a+f.ci,0)/HFARMS.length;
+  return {gross,net,ci};
+}
+function hBoot(){
+  const s=hStats();
+  const el=id=>document.getElementById(id);
+  if(el('hh-farms')){ el('hh-farms').textContent=HFARMS.length; el('hh-net').textContent=(s.net/1000).toFixed(1)+'k'; el('hh-ci').textContent=s.ci.toFixed(2); }
+  const m=el('hausmap'); if(m) m.innerHTML=hAusMap();
+}
+function hAusMap(){
+  const path="M104 196 L120 168 L150 150 L168 120 L182 96 L196 120 L214 110 L226 86 L240 70 L252 96 L268 88 L286 110 L330 104 L386 104 L430 116 L470 104 L496 120 L520 150 L540 150 L560 178 L572 214 L560 250 L526 268 L500 262 L484 286 L470 300 L452 322 L430 352 L398 372 L356 380 L312 376 L280 360 L250 346 L220 354 L190 344 L162 312 L138 270 L118 232 Z";
+  const P={NSW:[[470,300]],VIC:[[430,340]],QLD:[[440,190]],SA:[[350,290]],WA:[[190,270]],TAS:[[430,392]]};
+  const used={}; let dots='';
+  HFARMS.forEach((f,i)=>{
+    const b=P[f.state]?P[f.state][0]:[400,280];
+    used[f.state]=(used[f.state]||0)+1; const k=used[f.state];
+    const x=b[0]+((k-1)%3)*16-14, y=b[1]+Math.floor((k-1)/3)*16-8;
+    const over=f.ci>f.tgt, c=over?'#A8352B':'#4C7A4A';
+    dots+=`<g class="dotpulse" style="animation-delay:${i*0.15}s"><circle cx="${x}" cy="${y}" r="9" fill="${c}" opacity=".22"/><circle cx="${x}" cy="${y}" r="4.5" fill="${c}" stroke="#fff" stroke-width="1.4"/></g>`;
+  });
+  return `<svg viewBox="0 0 600 410" width="100%"><path d="${path}" fill="#1f4a2c" stroke="#3a6e44" stroke-width="2"/>
+   <ellipse cx="430" cy="392" rx="18" ry="13" fill="#1f4a2c" stroke="#3a6e44" stroke-width="2"/>${dots}</svg>`;
+}
+function renderHHow(){
+  document.getElementById('h-stepgrid').innerHTML=HSTEPS.map((s,i)=>`<div class="step"><div class="num">${i+1}</div><h3>${s[0]}</h3><p>${s[1]}</p></div>`).join('');
+}
+
+/* ---- horticulture dashboard (ledger) ---- */
+let hView='overview';
+function renderHDashView(){
+  if(!subscribed){document.getElementById('h-gate').innerHTML=gateHTML('The horticulture dashboard');document.getElementById('h-body').style.display='none';return;}
+  document.getElementById('h-gate').innerHTML='';document.getElementById('h-body').style.display='block';
+  const views=[['overview','Executive overview'],['sources','Emission sources'],['bench','Benchmarking'],['resource','Resource efficiency'],['confidence','Data confidence'],['abate','Abatement']];
+  document.getElementById('hviewchips').innerHTML=views.map(v=>`<span class="chip ${v[0]===hView?'on':''}" onclick="setHView('${v[0]}')">${v[1]}</span>`).join('');
+  const sel=document.getElementById('hfarmsel');
+  sel.innerHTML='<option value="ALL">All growers (network)</option>'+HFARMS.map(f=>`<option value="${f.id}">${f.name} · ${f.crop}</option>`).join('');
+  renderHDash();
+}
+function setHView(v){hView=v;
+  document.querySelectorAll('#hviewchips .chip').forEach(c=>c.classList.remove('on'));
+  [...document.querySelectorAll('#hviewchips .chip')].find(c=>c.getAttribute('onclick').includes("'"+v+"'")).classList.add('on');
+  renderHDash();}
+
+function hAgg(sel){
+  if(sel!=='ALL'){const f=HFARMS.find(x=>x.id===sel); return {...f, list:[f]};}
+  const gross=HFARMS.reduce((a,f)=>a+f.gross,0), net=HFARMS.reduce((a,f)=>a+f.net,0), rem=HFARMS.reduce((a,f)=>a+f.rem,0);
+  const s1=HFARMS.reduce((a,f)=>a+f.s1,0), s2=HFARMS.reduce((a,f)=>a+f.s2,0), s3=HFARMS.reduce((a,f)=>a+f.s3,0);
+  const src={}; HSRC.forEach(s=>src[s]=HFARMS.reduce((a,f)=>a+(f.src[s]||0),0));
+  const mNet=Array.from({length:12},(_,i)=>+HFARMS.reduce((a,f)=>a+f.mNet[i],0).toFixed(1));
+  const mCI=Array.from({length:12},(_,i)=>+(HFARMS.reduce((a,f)=>a+f.mCI[i],0)/HFARMS.length).toFixed(3));
+  return {name:'All growers',crop:'Network',state:'AU',sys:'12 growers',area:HFARMS.reduce((a,f)=>a+f.area,0),
+    gross,net,rem,s1,s2,s3,src,mNet,mCI,ci:HFARMS.reduce((a,f)=>a+f.ci,0)/HFARMS.length,
+    tgt:HFARMS.reduce((a,f)=>a+f.tgt,0)/HFARMS.length, yieldkg:HFARMS.reduce((a,f)=>a+f.yieldkg,0),
+    perha:gross/HFARMS.reduce((a,f)=>a+f.area,0), elec:HFARMS.reduce((a,f)=>a+f.elec,0),
+    diesel:HFARMS.reduce((a,f)=>a+f.diesel,0), water:HFARMS.reduce((a,f)=>a+f.water,0),
+    pack:HFARMS.reduce((a,f)=>a+f.pack,0), list:HFARMS};
+}
+const hFmt=x=>Math.round(x).toLocaleString();
+function hLine(series,opt){
+  const W=560,H=190,pl=42,pr=12,pt=12,pb=24, all=[].concat(...series.map(s=>s.v));
+  let mn=Math.min(...all),mx=Math.max(...all); const pad=(mx-mn)*0.2||1; mn=Math.max(0,mn-pad); mx=mx+pad;
+  const M=['J','F','M','A','M','J','J','A','S','O','N','D'];
+  const X=i=>pl+(W-pl-pr)*i/11, Y=v=>pt+(H-pt-pb)*(1-(v-mn)/(mx-mn));
+  let g='',lab='';
+  for(let k=0;k<=4;k++){const v=mn+(mx-mn)*k/4,y=Y(v);
+    g+=`<line x1="${pl}" y1="${y}" x2="${W-pr}" y2="${y}" stroke="#DDE0D6"/>`;
+    lab+=`<text x="${pl-5}" y="${y+3}" text-anchor="end" font-size="9" fill="#6E7569" font-family="ui-monospace,monospace">${(opt&&opt.dec)?v.toFixed(2):Math.round(v)}</text>`;}
+  const xl=M.map((m,i)=>`<text x="${X(i)}" y="${H-6}" text-anchor="middle" font-size="9" fill="#6E7569">${m}</text>`).join('');
+  const paths=series.map(s=>`<path d="${s.v.map((v,i)=>(i?'L':'M')+X(i)+' '+Y(v)).join(' ')}" fill="none" stroke="${s.c}" stroke-width="${s.w||2.2}" ${s.dash?'stroke-dasharray="4 3"':''}/>`).join('');
+  return `<svg viewBox="0 0 ${W} ${H}" width="100%">${g}${lab}${xl}${paths}</svg>`;
+}
+function hBars(items,total){
+  return items.map(it=>`<div class="hbar"><div class="n">${it[0]}</div>
+    <div class="tr"><i style="width:${Math.max(1,it[1]/total*100)}%;background:${it[2]}"></i></div>
+    <div class="v">${it[1].toFixed(0)} t · ${(it[1]/total*100).toFixed(1)}%</div></div>`).join('');
+}
+function renderHDash(){
+  const sel=document.getElementById('hfarmsel').value, a=hAgg(sel), el=document.getElementById('h-dash-content');
+  const over=a.ci>a.tgt, varPct=((a.ci-a.tgt)/a.tgt*100);
+  const kpis=`<div class="hkpis">
+    <div class="hkpi"><div class="l">Gross emissions</div><div class="v">${hFmt(a.gross)}</div><div class="d">t CO₂-e</div></div>
+    <div class="hkpi"><div class="l">Removals</div><div class="v" style="color:#3C6140">−${hFmt(a.rem)}</div><div class="d">soil + biomass</div></div>
+    <div class="hkpi accent"><div class="l">Net emissions</div><div class="v">${hFmt(a.net)}</div><div class="d">t CO₂-e</div></div>
+    <div class="hkpi"><div class="l">Carbon intensity</div><div class="v" style="color:${over?'#A8352B':'#4C7A4A'}">${a.ci.toFixed(3)}</div><div class="d">kg CO₂-e / kg · target ${a.tgt.toFixed(2)}</div></div>
+    <div class="hkpi"><div class="l">Variance to target</div><div class="v" style="color:${over?'#A8352B':'#4C7A4A'}">${varPct>0?'+':''}${varPct.toFixed(0)}%</div><div class="d">${over?'over target':'under target'}</div></div>
+    <div class="hkpi"><div class="l">Emissions / ha</div><div class="v">${a.perha.toFixed(1)}</div><div class="d">t CO₂-e / ha</div></div>
+  </div>`;
+  const srcRows=HSRC.map(s=>[s, a.src[s]||0, HCOL[s]]).sort((x,y)=>y[1]-x[1]);
+  let body='';
+  if(hView==='overview'){
+    body=`${kpis}
+    <div class="hgrid2">
+      <div class="hpanel"><h3>Monthly balance — net emissions (t CO₂-e)</h3>${hLine([{v:a.mNet,c:'#8C3B1E',w:2.4}])}</div>
+      <div class="hpanel"><h3>Scope split</h3>
+        <div class="hbar"><div class="n">Scope 1 — direct</div><div class="tr"><i style="width:${a.s1/a.gross*100}%;background:#8C3B1E"></i></div><div class="v">${hFmt(a.s1)} t · ${(a.s1/a.gross*100).toFixed(0)}%</div></div>
+        <div class="hbar"><div class="n">Scope 2 — electricity</div><div class="tr"><i style="width:${a.s2/a.gross*100}%;background:#2E6F7E"></i></div><div class="v">${hFmt(a.s2)} t · ${(a.s2/a.gross*100).toFixed(0)}%</div></div>
+        <div class="hbar"><div class="n">Scope 3 — upstream</div><div class="tr"><i style="width:${a.s3/a.gross*100}%;background:#B08429"></i></div><div class="v">${hFmt(a.s3)} t · ${(a.s3/a.gross*100).toFixed(0)}%</div></div>
+        <div class="hnote" style="margin-top:12px">Horticulture is <b>Scope 3 dominant</b> — packaging, fertiliser and freight sit upstream of the farm gate.</div>
+      </div>
+    </div>
+    <div class="hgrid2">
+      <div class="hpanel"><h3>Intensity vs target (kg CO₂-e / kg)</h3>${hLine([{v:a.mCI,c:'#8C3B1E',w:2.4},{v:a.mCI.map(()=>a.tgt),c:'#4C7A4A',dash:1,w:1.8}],{dec:1})}
+        <div style="font-size:10.5px;color:#6E7569;margin-top:6px">Solid = actual · dashed = target</div></div>
+      <div class="hpanel"><h3>Total emissions by source</h3>${hBars(srcRows.slice(0,6),a.gross)}</div>
+    </div>`;
+  } else if(hView==='sources'){
+    body=`${kpis}<div class="hpanel"><h3>Where it comes from — all 12 sources</h3>${hBars(srcRows,a.gross)}</div>
+    <div class="hpanel"><h3>Monthly net-emission trend</h3>${hLine([{v:a.mNet,c:'#8C3B1E',w:2.4}])}</div>`;
+  } else if(hView==='bench'){
+    const rows=HFARMS.slice().sort((x,y)=>y.ci-x.ci).map(f=>{const o=f.ci>f.tgt;
+      return `<tr><td class="t">${f.name}</td><td class="t">${f.crop}</td><td>${f.state}</td><td>${f.area}</td>
+      <td>${hFmt(f.gross)}</td><td>${hFmt(f.net)}</td><td>${f.ci.toFixed(3)}</td><td>${f.tgt.toFixed(2)}</td>
+      <td><span class="flag" style="background:${o?'#A8352B':'#4C7A4A'}">${o?'OVER':'UNDER'}</span></td></tr>`}).join('');
+    body=`${kpis}<div class="hpanel"><h3>Farm ledger — intensity vs target</h3>
+      <table class="hl"><tr><th>Grower</th><th>Crop</th><th>State</th><th>ha</th><th>Gross t</th><th>Net t</th><th>Intensity</th><th>Target</th><th>Status</th></tr>${rows}</table></div>`;
+  } else if(hView==='resource'){
+    const rr=HFARMS.slice().sort((x,y)=>y.elec-x.elec);
+    const maxE=Math.max(...rr.map(f=>f.elec)), maxD=Math.max(...rr.map(f=>f.diesel)), maxW=Math.max(...rr.map(f=>f.water));
+    body=`${kpis}<div class="hgrid3">
+      <div class="hpanel"><h3>Electricity by grower (kWh)</h3>${rr.slice(0,7).map(f=>`<div class="hbar"><div class="n" style="width:110px">${f.name.split(' ')[0]}</div><div class="tr"><i style="width:${f.elec/maxE*100}%;background:#2E6F7E"></i></div><div class="v">${(f.elec/1000).toFixed(0)}k</div></div>`).join('')}</div>
+      <div class="hpanel"><h3>Diesel by grower (L)</h3>${rr.slice().sort((x,y)=>y.diesel-x.diesel).slice(0,7).map(f=>`<div class="hbar"><div class="n" style="width:110px">${f.name.split(' ')[0]}</div><div class="tr"><i style="width:${f.diesel/maxD*100}%;background:#8C3B1E"></i></div><div class="v">${(f.diesel/1000).toFixed(1)}k</div></div>`).join('')}</div>
+      <div class="hpanel"><h3>Water by grower (kL)</h3>${rr.slice().sort((x,y)=>y.water-x.water).slice(0,7).map(f=>`<div class="hbar"><div class="n" style="width:110px">${f.name.split(' ')[0]}</div><div class="tr"><i style="width:${f.water/maxW*100}%;background:#4E8FA8"></i></div><div class="v">${(f.water/1000).toFixed(0)}k</div></div>`).join('')}</div>
+    </div>`;
+  } else if(hView==='confidence'){
+    body=`${kpis}
+    <div class="hnote"><b>How much of this number can you defend?</b> Of the 111 emission factors in the library, only 10 are Australian official. We show you which parts of your footprint are solid — and which rest on proxies that should be replaced.</div>
+    <div class="hgrid2">
+      <div class="hpanel"><h3>Factor library — confidence</h3>
+        <div class="hbar"><div class="n">Australian official</div><div class="tr"><i style="width:9%;background:#4C7A4A"></i></div><div class="v">10 · 9%</div></div>
+        <div class="hbar"><div class="n">IPCC Tier 1</div><div class="tr"><i style="width:8%;background:#4C7A4A"></i></div><div class="v">9 · 8%</div></div>
+        <div class="hbar"><div class="n">AU/IPCC GWP basis</div><div class="tr"><i style="width:8%;background:#C08A2E"></i></div><div class="v">9 · 8%</div></div>
+        <div class="hbar"><div class="n">Check reporting-year</div><div class="tr"><i style="width:7%;background:#C08A2E"></i></div><div class="v">8 · 7%</div></div>
+        <div class="hbar"><div class="n">Proxy — replace</div><div class="tr"><i style="width:60%;background:#A8352B"></i></div><div class="v">67 · 60%</div></div>
+        <div class="hbar"><div class="n">Site-specific / other</div><div class="tr"><i style="width:8%;background:#6E7569"></i></div><div class="v">8 · 8%</div></div>
+      </div>
+      <div class="hpanel"><h3>Factor groups covered</h3>
+        <table class="hl"><tr><th>Group</th><th>Factors</th><th>Scope</th></tr>
+        <tr><td class="t">Electricity</td><td>17</td><td>2</td></tr><tr><td class="t">Packaging</td><td>11</td><td>3</td></tr>
+        <tr><td class="t">Infrastructure</td><td>9</td><td>3</td></tr><tr><td class="t">Refrigeration</td><td>9</td><td>1</td></tr>
+        <tr><td class="t">Transport</td><td>9</td><td>3</td></tr><tr><td class="t">Waste</td><td>9</td><td>3</td></tr>
+        <tr><td class="t">Fuel</td><td>8</td><td>1 / 3</td></tr><tr><td class="t">Soil N₂O</td><td>7</td><td>1</td></tr></table>
+        <div style="font-size:10.5px;color:#6E7569;margin-top:8px">72 of 111 factors are Scope 3 — the upstream story.</div>
+      </div>
+    </div>`;
+  } else if(hView==='abate'){
+    const lv=hLevers(a);
+    body=`${kpis}<div class="hpanel"><h3>Abatement levers — model a reduction</h3>
+      ${lv.map((l,i)=>`<div class="lever"><div class="ln">${l.n}</div>
+        <input type="range" min="0" max="${l.max}" value="${l.def}" oninput="hLever(${i},this.value)">
+        <div class="lv" id="hlv-${i}">${l.def}% · ${(a.src[l.src]*l.def/100).toFixed(0)} t</div></div>`).join('')}
+      <div class="hnote" style="margin-top:14px" id="h-abate-sum"></div></div>`;
+  }
+  el.innerHTML=body;
+  if(hView==='abate') hAbateSum();
+}
+let _hLeverVals={};
+function hLevers(a){return [
+  {n:'Recycled / lighter packaging',src:'Packaging',max:60,def:30},
+  {n:'Precision nitrogen',src:'Soil N₂O',max:50,def:25},
+  {n:'Solar + energy efficiency',src:'Electricity',max:80,def:40},
+  {n:'Electric / efficient machinery',src:'Fuel',max:50,def:20},
+  {n:'Freight consolidation',src:'Transport',max:40,def:20},
+];}
+function hLever(i,v){
+  const a=hAgg(document.getElementById('hfarmsel').value), l=hLevers(a)[i];
+  _hLeverVals[i]=+v;
+  document.getElementById('hlv-'+i).textContent=`${v}% · ${(a.src[l.src]*v/100).toFixed(0)} t`;
+  hAbateSum();
+}
+function hAbateSum(){
+  const a=hAgg(document.getElementById('hfarmsel').value), ls=hLevers(a);
+  let saved=0; ls.forEach((l,i)=>{const v=_hLeverVals[i]!==undefined?_hLeverVals[i]:l.def; saved+=(a.src[l.src]||0)*v/100;});
+  const newNet=Math.max(0,a.net-saved), newCI=a.yieldkg>0?(newNet*1000/a.yieldkg):0;
+  const el=document.getElementById('h-abate-sum'); if(!el) return;
+  el.innerHTML=`<b>Modelled outcome:</b> ${saved.toFixed(0)} t CO₂-e/yr abated · net falls from <b>${hFmt(a.net)} t</b> to <b>${hFmt(newNet)} t</b> · intensity ${a.ci.toFixed(3)} → <b>${newCI.toFixed(3)}</b> kg CO₂-e/kg (target ${a.tgt.toFixed(2)}) ${newCI<=a.tgt?'<span class="flag" style="background:#4C7A4A">TARGET MET</span>':'<span class="flag" style="background:#A8352B">STILL OVER</span>'}`;
+}
+
+/* ---- horticulture AI ---- */
+function renderHAIView(){
+  if(!subscribed){document.getElementById('h-ai-gate').innerHTML=gateHTML('AI recommendations');document.getElementById('h-ai-body').style.display='none';return;}
+  document.getElementById('h-ai-gate').innerHTML='';document.getElementById('h-ai-body').style.display='block';
+  document.getElementById('haifarmsel').innerHTML=HFARMS.map(f=>`<option value="${f.id}">${f.name} · ${f.crop}</option>`).join('');
+  renderHAI();
+}
+function renderHAI(){
+  const f=HFARMS.find(x=>x.id===document.getElementById('haifarmsel').value)||HFARMS[0];
+  const over=f.ci>f.tgt, gap=((f.ci-f.tgt)/f.tgt*100);
+  const ranked=HSRC.map(s=>[s,f.src[s]||0]).sort((a,b)=>b[1]-a[1]);
+  const ACT={'Packaging':['Switch to recycled/lighter packaging','30%','1.2 yr'],'Soil N₂O':['Precision nitrogen + soil testing','25%','1.6 yr'],
+   'Electricity':['Solar PV + efficient cooling','40%','3.4 yr'],'Fuel':['Efficient machinery + route planning','20%','1.8 yr'],
+   'Fertiliser (upstream)':['Optimise fertiliser rate & supplier','20%','1.4 yr'],'Transport':['Consolidate freight, reduce empty runs','20%','1.0 yr'],
+   'Chemicals':['Integrated pest management','15%','2.0 yr'],'Planting materials':['Extend planting cycle / local nursery','12%','2.5 yr'],
+   'Water':['Drip irrigation + soil moisture sensors','25%','2.2 yr'],'Waste':['Compost organic waste on-site','30%','1.1 yr'],
+   'Lime & urea':['Switch to coated urea','15%','1.3 yr'],'Refrigeration':['Low-GWP refrigerant, leak detection','40%','2.8 yr']};
+  const rows=ranked.slice(0,6).map(r=>{const a=ACT[r[0]]||['Review source','10%','2 yr'];
+    const cut=r[1]*parseFloat(a[1])/100;
+    return `<tr><td>${r[0]}</td><td>${a[0]}</td><td class="num">${cut.toFixed(0)}</td><td class="num">${a[1]}</td><td class="num">${a[2]}</td>
+      <td style="text-align:center"><span class="prio" style="background:${cut>30?'#d14a3f':cut>12?'#df9b26':'#4e9d52'}">${cut>30?'High':cut>12?'Medium':'Low'}</span></td></tr>`}).join('');
+  const totalCut=ranked.slice(0,6).reduce((s,r)=>{const a=ACT[r[0]]||['',10];return s+r[1]*parseFloat(a[1])/100;},0);
+  document.getElementById('h-ai-content').innerHTML=`
+   <div class="kpibar" style="grid-template-columns:repeat(4,1fr)">
+     <div class="kpi"><div class="kl">Carbon intensity</div><div class="kv" style="color:${over?'#d14a3f':'#4e9d52'}">${f.ci.toFixed(3)}</div><div class="ks">target ${f.tgt.toFixed(2)} kg CO₂-e/kg</div></div>
+     <div class="kpi"><div class="kl">Variance to target</div><div class="kv" style="color:${over?'#d14a3f':'#4e9d52'}">${gap>0?'+':''}${gap.toFixed(0)}%</div><div class="ks">${over?'action required':'on track'}</div></div>
+     <div class="kpi"><div class="kl">Top emission driver</div><div class="kv" style="font-size:19px">${ranked[0][0]}</div><div class="ks">${ranked[0][1].toFixed(0)} t · ${(ranked[0][1]/f.gross*100).toFixed(0)}% of gross</div></div>
+     <div class="kpi"><div class="kl">Reduction potential</div><div class="kv" style="color:#b8881e">${totalCut.toFixed(0)} t</div><div class="ks">across recommended actions</div></div>
+   </div>
+   <div class="panel"><h3>Why this grower ${over?'misses':'meets'} target</h3>
+     <div class="ph">${f.name} · ${f.crop} · ${f.sys} · ${f.state} · ${f.area} ha</div>
+     <p style="font-size:13px;color:var(--muted);margin:0 0 10px">${over
+       ? `Intensity is <b style="color:#d14a3f">${gap.toFixed(0)}% above</b> the ${f.tgt.toFixed(2)} target. The dominant driver is <b>${ranked[0][0]}</b> (${(ranked[0][1]/f.gross*100).toFixed(0)}% of gross), followed by ${ranked[1][0]} and ${ranked[2][0]}.`
+       : `Intensity is <b style="color:#4e9d52">${Math.abs(gap).toFixed(0)}% below</b> the ${f.tgt.toFixed(2)} target — this grower is a network benchmark. Largest remaining source is <b>${ranked[0][0]}</b>.`}</p>
+   </div>
+   <div class="panel" style="margin-top:16px"><h3>AI-recommended abatement</h3><div class="ph">Ranked by tonnes saved · ${f.name}</div>
+     <table class="tbl"><tr><th>Source</th><th>Action</th><th style="text-align:center">Cut t/yr</th><th style="text-align:center">Reduction</th><th style="text-align:center">Payback</th><th style="text-align:center">Priority</th></tr>${rows}</table>
+   </div>`;
+}
+
+/* ---- horticulture calculator ---- */
+function calcHort(){
+  const $=id=>document.getElementById(id), n=id=>+($(id).value)||0;
+  const F={diesel:2.718+0.668, elec:0.66, soilN2O:(4.42), fertUp:1.35, plastic:2.6, card:0.94, freight:0.12, water:0.15, chem:9.1};
+  const diesel=n('hi-diesel')*F.diesel/1000, elec=n('hi-elec')*F.elec/1000,
+        soilN=n('hi-n')*F.soilN2O/1000, fertUp=n('hi-n')*F.fertUp/1000,
+        plastic=n('hi-plastic')*F.plastic/1000, card=n('hi-card')*F.card/1000,
+        freight=n('hi-freight')*F.freight/1000, water=n('hi-water')*F.water/1000,
+        chem=n('hi-chem')*F.chem/1000;
+  const pack=plastic+card;
+  const gross=diesel+elec+soilN+fertUp+pack+freight+water+chem;
+  const rem=n('hi-rem'), net=Math.max(0,gross-rem);
+  const y=n('hi-yield'), ci=y>0?net*1000/y:0;
+  const s1=diesel+soilN, s2=elec, s3=fertUp+pack+freight+water+chem;
+  const area=n('hi-area')||1;
+  const rows=[['Fuel (diesel)','Scope 1/3',diesel],['Soil N₂O','Scope 1',soilN],['Electricity','Scope 2',elec],
+    ['Fertiliser (upstream)','Scope 3',fertUp],['Packaging','Scope 3',pack],['Transport / freight','Scope 3',freight],
+    ['Water supply','Scope 3',water],['Chemicals','Scope 3',chem],['Removals (soil + biomass)','Removal',-rem]];
+  const fmt=x=>Math.round(x).toLocaleString();
+  $('h-input-result').innerHTML=`
+   <div class="result">
+     <div><div class="big">${fmt(net)}</div><div class="rl">t CO₂-e / year (net)</div></div>
+     <div>
+       <div class="rl"><b style="color:#fff">${$('hi-name').value}</b> · ${$('hi-state').value} · ${$('hi-crop').value} · ${$('hi-sys').value} · ${area} ha</div>
+       <div class="rl" style="margin-top:6px">Gross <b style="color:#fff">${fmt(gross)} t</b> · Removals <b style="color:#e9c768">−${fmt(rem)} t</b> · Intensity <b style="color:#e9c768">${ci.toFixed(3)}</b> kg CO₂-e / kg sold</div>
+       <div class="split">
+         <div class="s">Scope 1 <b>${fmt(s1)} t</b></div><div class="s">Scope 2 <b>${fmt(s2)} t</b></div><div class="s">Scope 3 <b>${fmt(s3)} t</b></div>
+         <div class="s">Per ha <b>${(gross/area).toFixed(1)} t</b></div>
+       </div>
+     </div>
+   </div>
+   <div class="bench">
+     <div class="bc"><div class="bv">${ci.toFixed(3)}</div><div class="bl">kg CO₂-e / kg sold</div><div class="bref">network avg ≈ 0.48</div></div>
+     <div class="bc"><div class="bv">${(gross/area).toFixed(1)}</div><div class="bl">t CO₂-e / ha</div><div class="bref">network avg ≈ 5.3</div></div>
+     <div class="bc"><div class="bv">${Math.round(net/15).toLocaleString()}</div><div class="bl">≈ average Australians' footprint</div><div class="bref">~15 t / person / yr</div></div>
+   </div>
+   <div class="panel" style="margin-top:16px"><h3>Transparent data &amp; factors</h3>
+     <div class="ph">12-source model · NGER / IPCC-aligned · indicative</div>
+     <table class="factbl"><tr><th>Source</th><th>Scope</th><th class="n">t CO₂-e</th><th class="n">Share of gross</th></tr>
+     ${rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td class="n" style="color:${r[2]<0?'#4e9d52':'#16201a'}">${r[2]<0?'−':''}${fmt(Math.abs(r[2]))}</td><td class="n">${gross>0?(Math.abs(r[2])/gross*100).toFixed(1):0}%</td></tr>`).join('')}
+     <tr style="background:#faf9f8"><td><b>Net</b></td><td></td><td class="n"><b>${fmt(net)}</b></td><td class="n"></td></tr></table>
+     <p style="font-size:11.5px;color:var(--muted);margin-top:10px"><b>Indicative estimate.</b> Of the 111 factors in the horticulture library, only 10 are Australian official — production replaces proxy factors with published NGER values before any formal reporting.</p>
+   </div>`;
+  $('h-input-result').scrollIntoView({behavior:'smooth',block:'center'});
+}
+
 boot();
+buildNav();
 </script>
 <script>
 (function(){
