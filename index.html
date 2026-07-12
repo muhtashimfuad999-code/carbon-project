@@ -267,6 +267,42 @@ table.t tr:hover td{background:#fbfbfa}
 
 @media(max-width:900px){.tabs{font-size:11px}}
 
+
+/* ---- EAP-style advanced calculator ---- */
+.calc-tabs{display:inline-flex;gap:4px;background:#fff;border:1px solid var(--hair);border-radius:10px;padding:4px;margin-bottom:18px;box-shadow:var(--shadow)}
+.calc-tabs button{border:none;background:none;padding:8px 18px;border-radius:7px;font-weight:600;font-size:13px;color:var(--muted);cursor:pointer;font-family:inherit}
+.calc-tabs button.on{background:var(--forest);color:#fff}
+.wiz{background:#fff;border:1px solid var(--hair);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+.wiz-steps{display:flex;border-bottom:1px solid var(--hair);background:#fafcf8;overflow-x:auto}
+.wiz-steps .ws{flex:1;min-width:130px;padding:13px 10px;text-align:center;border-bottom:3px solid transparent;cursor:pointer;font-size:12.5px;color:var(--muted);font-weight:600;white-space:nowrap}
+.wiz-steps .ws .sn{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#dfe7da;color:var(--muted);font-size:11px;margin-right:6px;font-family:var(--serif);font-weight:700}
+.wiz-steps .ws.on{color:var(--forest);border-bottom-color:var(--forest);background:#fff}
+.wiz-steps .ws.on .sn{background:var(--forest);color:#fff}
+.wiz-steps .ws.done .sn{background:var(--green);color:#fff}
+.wiz-body{padding:22px}
+.wiz-pane{display:none}.wiz-pane.on{display:block}
+.wiz-pane h3{font-family:var(--serif);font-size:19px;margin:0 0 4px}
+.wiz-pane .wh{color:var(--muted);font-size:12.5px;margin-bottom:16px}
+.wiz-foot{display:flex;justify-content:space-between;align-items:center;padding:14px 22px;border-top:1px solid var(--hair);background:#fafcf8}
+.wiz-foot .prog{font-size:12px;color:var(--muted)}
+.btn-sm{padding:9px 18px;border-radius:9px;font-weight:700;font-size:13px;border:none;cursor:pointer}
+.btn-nav{background:#fff;color:var(--forest);border:1.5px solid var(--hair)}
+.btn-nav:disabled{opacity:.4;cursor:not-allowed}
+.enterprise{border:1px solid var(--hair);border-radius:12px;padding:14px;margin-bottom:12px;background:#fafcf8}
+.enterprise .eh{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.enterprise .eh b{font-family:var(--serif);font-size:15px}
+.enterprise .rm{background:none;border:none;color:var(--red);font-size:12px;cursor:pointer;font-weight:600}
+.eng-badge{display:inline-flex;align-items:center;gap:7px;background:#eef6ec;border:1px solid #cfe3c6;border-radius:20px;padding:5px 12px;font-size:11.5px;color:var(--forest);font-weight:600}
+.eng-badge i{width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.eng-badge.live i{background:var(--green)}
+.res-hero{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;background:var(--pasture);color:#fff;border-radius:14px;padding:20px 24px}
+.res-hero .rv{font-family:var(--serif);font-size:42px;color:#e9c768;line-height:1}
+.res-hero .rl{font-size:12.5px;color:#cfe3c6}
+.res-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+.res-grid .rc{background:#fff;border:1px solid var(--hair);border-radius:12px;padding:14px;text-align:center}
+.res-grid .rc .v{font-family:var(--serif);font-size:22px;color:var(--forest)}
+.res-grid .rc .l{font-size:11px;color:var(--muted);margin-top:3px}
+@media(max-width:820px){.res-grid{grid-template-columns:repeat(2,1fr)}.res-hero{grid-template-columns:1fr}}
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -552,26 +588,122 @@ table.t tr:hover td{background:#fbfbfa}
 
 <!-- ============ FARM DATA INPUT ============ -->
 <section class="view" data-view="input">
-  <div class="sec-head"><span class="kicker">Farm data input</span><h2 class="h-lead">Enter your farm data — see emissions instantly</h2><p class="sub">Producers enter operational data through guided fields; the platform converts it to CO₂-e using NGER / IPCC-aligned factors — including <b>land &amp; vegetation</b>. Every number is traceable (see the factor table below). Indicative demonstration.</p></div>
-  <div class="panel" style="margin-bottom:18px">
-    <div class="form-grid">
-      <div class="fld"><label>Farm name</label><input id="i-name" value="My Farm"></div>
-      <div class="fld"><label>State</label><select id="i-state"><option>QLD</option><option>NSW</option><option>VIC</option><option>WA</option><option>SA</option><option>TAS</option></select></div>
-      <div class="fld"><label>System</label><select id="i-type"><option>Dairy</option><option>Beef</option><option>Mixed</option><option>Feedlot</option></select></div>
-      <div class="fld"><label>Herd size (head)</label><input id="i-head" type="number" value="312"></div>
-      <div class="fld"><label>Diesel (L / year)</label><input id="i-diesel" type="number" value="67000"></div>
-      <div class="fld"><label>Electricity (kWh / year)</label><input id="i-elec" type="number" value="320000"></div>
-      <div class="fld"><label>Feed purchased (t / year)</label><input id="i-feed" type="number" value="850"></div>
-      <div class="fld"><label>Fertiliser N (kg / year)</label><input id="i-fert" type="number" value="12000"></div>
-      <div class="fld"><label>Milk output (L / year)</label><input id="i-milk" type="number" value="1572000"></div>
-      <div class="fld"><label>Trees / shelterbelt (ha)</label><input id="i-trees" type="number" value="18"></div>
-      <div class="fld"><label>Pasture area (ha)</label><input id="i-pasture" type="number" value="420"></div>
-      <div class="fld"><label>Land cleared this year (ha)</label><input id="i-cleared" type="number" value="0"></div>
-      <div class="fld"><label>Planned reduction (% → ACCUs)</label><input id="i-redpct" type="number" value="12"></div>
-    </div>
-    <button class="btn-lg btn-primary" style="margin-top:18px" onclick="calcInput()">Calculate emissions</button>
+  <div class="sec-head"><span class="kicker">Farm data input</span><h2 class="h-lead">Calculate your farm's carbon footprint</h2>
+    <p class="sub">Quick estimate for a fast answer, or a full property assessment structured like the national standard. Emissions are computed by a swappable engine — today NGER/IPCC-aligned factors, designed to run on the <b>AIA Environmental Accounting Platform</b> engine once connected.</p></div>
+
+  <div class="calc-tabs">
+    <button id="ct-quick" class="on" onclick="calcTab('quick')">Quick estimate</button>
+    <button id="ct-adv" onclick="calcTab('adv')">Full property assessment</button>
   </div>
-  <div id="input-result"></div>
+
+  <!-- ---------- QUICK ---------- -->
+  <div id="calc-quick">
+    <div class="panel" style="margin-bottom:18px">
+      <div class="form-grid">
+        <div class="fld"><label>Farm name</label><input id="i-name" value="My Farm"></div>
+        <div class="fld"><label>State</label><select id="i-state"><option>QLD</option><option>NSW</option><option>VIC</option><option>WA</option><option>SA</option><option>TAS</option></select></div>
+        <div class="fld"><label>System</label><select id="i-type"><option>Dairy</option><option>Beef</option><option>Mixed</option><option>Feedlot</option></select></div>
+        <div class="fld"><label>Herd size (head)</label><input id="i-head" type="number" value="312"></div>
+        <div class="fld"><label>Diesel (L / year)</label><input id="i-diesel" type="number" value="67000"></div>
+        <div class="fld"><label>Electricity (kWh / year)</label><input id="i-elec" type="number" value="320000"></div>
+        <div class="fld"><label>Feed purchased (t / year)</label><input id="i-feed" type="number" value="850"></div>
+        <div class="fld"><label>Fertiliser N (kg / year)</label><input id="i-fert" type="number" value="12000"></div>
+        <div class="fld"><label>Milk output (L / year)</label><input id="i-milk" type="number" value="1572000"></div>
+        <div class="fld"><label>Trees / shelterbelt (ha)</label><input id="i-trees" type="number" value="18"></div>
+        <div class="fld"><label>Pasture area (ha)</label><input id="i-pasture" type="number" value="420"></div>
+        <div class="fld"><label>Land cleared this year (ha)</label><input id="i-cleared" type="number" value="0"></div>
+        <div class="fld"><label>Planned reduction (% → ACCUs)</label><input id="i-redpct" type="number" value="12"></div>
+      </div>
+      <button class="btn-lg btn-primary" style="margin-top:18px" onclick="calcInput()">Calculate emissions</button>
+    </div>
+    <div id="input-result"></div>
+  </div>
+
+  <!-- ---------- ADVANCED WIZARD ---------- -->
+  <div id="calc-adv" style="display:none">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:10px">
+      <span class="eng-badge" id="eng-status"><i></i>Engine: LCCIP indicative (NGER/IPCC-aligned) — EAP-ready</span>
+      <span style="font-size:12px;color:var(--muted)">Structured to the national standard · property → enterprises → inventory → results</span>
+    </div>
+    <div class="wiz">
+      <div class="wiz-steps" id="wiz-steps"></div>
+      <div class="wiz-body">
+
+        <!-- 1 property -->
+        <div class="wiz-pane on" data-pane="0">
+          <h3>Property</h3><div class="wh">Define the property boundary and land use — the basis of the assessment.</div>
+          <div class="form-grid">
+            <div class="fld"><label>Property name</label><input id="a-name" value="Riverdale Cattle Farm"></div>
+            <div class="fld"><label>State</label><select id="a-state"><option>QLD</option><option>NSW</option><option>VIC</option><option>WA</option><option>SA</option><option>TAS</option><option>NT</option></select></div>
+            <div class="fld"><label>Reporting year</label><select id="a-year"><option>2026</option><option>2025</option></select></div>
+            <div class="fld"><label>Total area (ha)</label><input id="a-area" type="number" value="506"></div>
+            <div class="fld"><label>Grazing / pasture (ha)</label><input id="a-pasture" type="number" value="420"></div>
+            <div class="fld"><label>Cropping / fodder (ha)</label><input id="a-crop" type="number" value="50"></div>
+            <div class="fld"><label>Trees, shelterbelt, remnant veg (ha)</label><input id="a-trees" type="number" value="18"></div>
+            <div class="fld"><label>Land cleared this year (ha)</label><input id="a-cleared" type="number" value="0"></div>
+            <div class="fld"><label>Land revegetated this year (ha)</label><input id="a-reveg" type="number" value="2"></div>
+          </div>
+        </div>
+
+        <!-- 2 enterprises -->
+        <div class="wiz-pane" data-pane="1">
+          <h3>Enterprises &amp; livestock</h3><div class="wh">Add each enterprise on the property. Livestock are entered by class — the biggest driver of farm emissions.</div>
+          <div id="ent-list"></div>
+          <button class="btn-sm btn-nav" onclick="addEnt()">+ Add enterprise</button>
+        </div>
+
+        <!-- 3 feed & fertiliser -->
+        <div class="wiz-pane" data-pane="2">
+          <h3>Feed, fertiliser &amp; soil</h3><div class="wh">Purchased inputs carry embedded (Scope 3) emissions; nitrogen drives N₂O.</div>
+          <div class="form-grid">
+            <div class="fld"><label>Purchased feed — grain (t/yr)</label><input id="a-grain" type="number" value="500"></div>
+            <div class="fld"><label>Purchased feed — hay/silage (t/yr)</label><input id="a-hay" type="number" value="350"></div>
+            <div class="fld"><label>Feed additive (3-NOP / Asparagopsis)</label><select id="a-additive"><option value="0">None</option><option value="0.20">Yes — ~20% enteric reduction</option><option value="0.30">Yes — ~30% enteric reduction</option></select></div>
+            <div class="fld"><label>Urea / nitrogen fertiliser (kg N/yr)</label><input id="a-fertn" type="number" value="12000"></div>
+            <div class="fld"><label>Lime applied (t/yr)</label><input id="a-lime" type="number" value="20"></div>
+            <div class="fld"><label>Manure management</label><select id="a-manure"><option value="1">Uncovered / pasture deposit</option><option value="0.75">Solid storage</option><option value="0.55">Covered lagoon</option><option value="0.35">Anaerobic digester</option></select></div>
+          </div>
+        </div>
+
+        <!-- 4 energy & fuel -->
+        <div class="wiz-pane" data-pane="3">
+          <h3>Energy, fuel &amp; transport</h3><div class="wh">Scope 1 (fuel you burn) and Scope 2 (electricity you buy).</div>
+          <div class="form-grid">
+            <div class="fld"><label>Diesel (L/yr)</label><input id="a-diesel" type="number" value="67000"></div>
+            <div class="fld"><label>Petrol (L/yr)</label><input id="a-petrol" type="number" value="4000"></div>
+            <div class="fld"><label>LPG (L/yr)</label><input id="a-lpg" type="number" value="0"></div>
+            <div class="fld"><label>Grid electricity (kWh/yr)</label><input id="a-elec" type="number" value="320000"></div>
+            <div class="fld"><label>Renewable / solar generated (kWh/yr)</label><input id="a-solar" type="number" value="0"></div>
+            <div class="fld"><label>Freight / transport (km/yr)</label><input id="a-freight" type="number" value="42000"></div>
+          </div>
+        </div>
+
+        <!-- 5 production & credits -->
+        <div class="wiz-pane" data-pane="4">
+          <h3>Production &amp; credit scenario</h3><div class="wh">Production gives carbon intensity. The reduction scenario drives the ACCU calculation (baseline − project).</div>
+          <div class="form-grid">
+            <div class="fld"><label>Milk produced (L/yr)</label><input id="a-milk" type="number" value="1572000"></div>
+            <div class="fld"><label>Beef liveweight sold (kg/yr)</label><input id="a-lwg" type="number" value="0"></div>
+            <div class="fld"><label>Planned reduction vs baseline (%)</label><input id="a-redpct" type="number" value="12"></div>
+            <div class="fld"><label>ACCU price ($)</label><input id="a-price" type="number" value="38"></div>
+            <div class="fld"><label>Risk-of-reversal buffer (%)</label><input id="a-buffer" type="number" value="5"></div>
+          </div>
+        </div>
+
+        <!-- 6 results -->
+        <div class="wiz-pane" data-pane="5">
+          <h3>Results</h3><div class="wh">Full inventory · Scope 1·2·3 · carbon intensity · benchmarks · ACCU potential.</div>
+          <div id="adv-result"><p style="color:var(--muted);font-size:13px">Click <b>Calculate</b> to run the assessment.</p></div>
+        </div>
+
+      </div>
+      <div class="wiz-foot">
+        <button class="btn-sm btn-nav" id="wz-prev" onclick="wizGo(-1)">← Back</button>
+        <span class="prog" id="wz-prog">Step 1 of 6</span>
+        <button class="btn-sm btn-primary" id="wz-next" onclick="wizNext()">Next →</button>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ============ AI RECOMMENDATIONS ============ -->
@@ -1091,6 +1223,154 @@ function dashTab(w){
   document.getElementById('dash-live').style.display=w==='live'?'block':'none';
   document.getElementById('pbi-wrap').style.display=w==='report'?'block':'none';
 }
+
+/* =================== ADVANCED (EAP-STYLE) CALCULATOR =================== */
+const WSTEPS=['Property','Enterprises','Feed & soil','Energy','Production','Results'];
+let wzi=0, ents=[];
+
+function calcTab(w){
+  document.getElementById('ct-quick').classList.toggle('on',w==='quick');
+  document.getElementById('ct-adv').classList.toggle('on',w==='adv');
+  document.getElementById('calc-quick').style.display=w==='quick'?'block':'none';
+  document.getElementById('calc-adv').style.display=w==='adv'?'block':'none';
+  if(w==='adv'){ renderWizSteps(); if(!ents.length) seedEnts(); }
+}
+function renderWizSteps(){
+  document.getElementById('wiz-steps').innerHTML=WSTEPS.map((s,i)=>
+    `<div class="ws ${i===wzi?'on':''} ${i<wzi?'done':''}" onclick="wizJump(${i})"><span class="sn">${i+1}</span>${s}</div>`).join('');
+  document.querySelectorAll('.wiz-pane').forEach((p,i)=>p.classList.toggle('on',i===wzi));
+  document.getElementById('wz-prog').textContent=`Step ${wzi+1} of ${WSTEPS.length}`;
+  document.getElementById('wz-prev').disabled=(wzi===0);
+  document.getElementById('wz-next').textContent = wzi===WSTEPS.length-2 ? 'Calculate →' : (wzi===WSTEPS.length-1?'Recalculate':'Next →');
+}
+function wizJump(i){ wzi=Math.max(0,Math.min(WSTEPS.length-1,i)); renderWizSteps(); if(wzi===5) runAdvanced(); }
+function wizGo(d){ wizJump(wzi+d); }
+function wizNext(){ if(wzi>=WSTEPS.length-2){ wzi=WSTEPS.length-1; renderWizSteps(); runAdvanced(); } else wizJump(wzi+1); }
+
+const CLASSES=[
+  ['Dairy cows (milking)',3.4],['Dairy heifers/replacements',2.2],['Beef breeding cows',2.4],
+  ['Beef steers/heifers (grazing)',1.9],['Feedlot cattle',1.6],['Bulls',2.6],['Calves',0.8]
+];
+function seedEnts(){ ents=[{cls:0,head:180,wt:550},{cls:1,head:70,wt:380},{cls:3,head:62,wt:420}]; renderEnts(); }
+function addEnt(){ ents.push({cls:3,head:50,wt:400}); renderEnts(); }
+function rmEnt(i){ ents.splice(i,1); renderEnts(); }
+function updEnt(i,k,v){ ents[i][k]= k==='cls'?+v:(+v||0); }
+function renderEnts(){
+  document.getElementById('ent-list').innerHTML=ents.map((e,i)=>`
+   <div class="enterprise">
+     <div class="eh"><b>Livestock enterprise ${i+1}</b><button class="rm" onclick="rmEnt(${i})">Remove</button></div>
+     <div class="form-grid">
+       <div class="fld"><label>Animal class</label><select onchange="updEnt(${i},'cls',this.value)">
+         ${CLASSES.map((c,j)=>`<option value="${j}" ${j===e.cls?'selected':''}>${c[0]}</option>`).join('')}
+       </select></div>
+       <div class="fld"><label>Head</label><input type="number" value="${e.head}" onchange="updEnt(${i},'head',this.value)"></div>
+       <div class="fld"><label>Avg liveweight (kg)</label><input type="number" value="${e.wt}" onchange="updEnt(${i},'wt',this.value)"></div>
+     </div>
+   </div>`).join('') || '<p style="color:var(--muted);font-size:13px">No enterprises yet — add one.</p>';
+}
+
+/* ---- SWAPPABLE ENGINE: today = local NGER/IPCC-aligned; tomorrow = AIA EAP API ---- */
+async function getEmissions(inp){
+  // When AIA EAP API access is granted, call it here (via a serverless function that holds the key):
+  //   const r = await fetch('/.netlify/functions/eap', {method:'POST', body:JSON.stringify(inp)});
+  //   if(r.ok) return {...await r.json(), engine:'AIA EAP'};
+  return {...calcLocal(inp), engine:'LCCIP indicative'};
+}
+function calcLocal(i){
+  const F={diesel:2.68,petrol:2.30,lpg:1.62,elec:0.66,grain:0.65,hay:0.45,fertN:5.5,lime:0.44,
+           freight:0.12,treeSeq:6.0,pastSeq:0.5,cropSeq:0.1,clearing:120,revegSeq:8.0,manureBase:0.55};
+  let enteric=0, headTot=0;
+  i.ents.forEach(e=>{ const ef=CLASSES[e.cls][1]*(e.wt/450); enteric+=e.head*ef; headTot+=e.head; });
+  enteric*= (1 - i.additive);
+  const manure   = headTot*F.manureBase*i.manureFactor;
+  const feed     = i.grain*F.grain + i.hay*F.hay;
+  const fertiliser = i.fertN*F.fertN/1000 + i.lime*F.lime;
+  const fuel     = (i.diesel*F.diesel + i.petrol*F.petrol + i.lpg*F.lpg)/1000;
+  const netElec  = Math.max(0, i.elec - i.solar);
+  const energy   = netElec*F.elec/1000;
+  const transport= i.freight*F.freight/1000;
+  const landUse  = i.cleared*F.clearing;
+  const seq      = i.trees*F.treeSeq + i.pasture*F.pastSeq + i.crop*F.cropSeq + i.reveg*F.revegSeq;
+  const gross    = enteric+manure+feed+fertiliser+fuel+energy+transport+landUse;
+  const net      = Math.max(0, gross - seq);
+  const s1 = enteric+manure+fuel+fertiliser+landUse;
+  const s2 = energy;
+  const s3 = feed+transport;
+  return {enteric,manure,feed,fertiliser,fuel,energy,transport,landUse,seq,gross,net,s1,s2,s3,headTot};
+}
+
+async function runAdvanced(){
+  const $=id=>document.getElementById(id), n=id=>+($(id).value)||0;
+  const inp={
+    ents:ents.slice(), additive:parseFloat($('a-additive').value)||0, manureFactor:parseFloat($('a-manure').value)||1,
+    grain:n('a-grain'), hay:n('a-hay'), fertN:n('a-fertn'), lime:n('a-lime'),
+    diesel:n('a-diesel'), petrol:n('a-petrol'), lpg:n('a-lpg'), elec:n('a-elec'), solar:n('a-solar'), freight:n('a-freight'),
+    pasture:n('a-pasture'), crop:n('a-crop'), trees:n('a-trees'), cleared:n('a-cleared'), reveg:n('a-reveg')
+  };
+  const r=await getEmissions(inp);
+  const milk=n('a-milk'), lwg=n('a-lwg'), redpct=n('a-redpct'), price=n('a-price')||38, buf=(n('a-buffer')||0)/100;
+  const intensity = milk>0 ? r.gross*1000/milk : (lwg>0 ? r.gross*1000/lwg : 0);
+  const iUnit = milk>0 ? 'kg CO₂-e / L milk' : (lwg>0?'kg CO₂-e / kg LWG':'—');
+  const baseline=r.net, project=r.net*(1-redpct/100), reduction=baseline-project;
+  const accus=Math.max(0,Math.round(reduction*(1-buf))), revenue=accus*price;
+  const perHead = r.headTot>0 ? r.net/r.headTot : 0;
+  const perPerson = Math.round(r.net/15);
+  const fmt=x=>Math.round(x).toLocaleString();
+  const rows=[
+    ['Enteric methane (CH₄)','Scope 1',r.enteric],['Manure (CH₄/N₂O)','Scope 1',r.manure],
+    ['Fuel — diesel/petrol/LPG','Scope 1',r.fuel],['Fertiliser & lime (N₂O/CO₂)','Scope 1',r.fertiliser],
+    ['Land-use change (clearing)','Scope 1',r.landUse],['Electricity (net of solar)','Scope 2',r.energy],
+    ['Purchased feed (embedded)','Scope 3',r.feed],['Freight & transport','Scope 3',r.transport],
+    ['Sequestration (trees, pasture, reveg)','Removal',-r.seq],
+  ];
+  $('eng-status').className='eng-badge'+(r.engine==='AIA EAP'?' live':'');
+  $('eng-status').innerHTML=`<i></i>Engine: ${r.engine==='AIA EAP'?'AIA EAP (national standard)':'LCCIP indicative (NGER/IPCC-aligned) — EAP-ready'}`;
+  $('adv-result').innerHTML=`
+   <div class="res-hero">
+     <div><div class="rv">${fmt(r.net)}</div><div class="rl">t CO₂-e / year (net)</div></div>
+     <div>
+       <div class="rl"><b style="color:#fff">${$('a-name').value}</b> · ${$('a-state').value} · ${$('a-year').value} · ${fmt(r.headTot)} head · ${fmt(n('a-area'))} ha</div>
+       <div class="rl" style="margin-top:6px">Gross <b style="color:#fff">${fmt(r.gross)} t</b> · Sequestered <b style="color:#e9c768">−${fmt(r.seq)} t</b> · Intensity <b style="color:#e9c768">${intensity.toFixed(2)}</b> ${iUnit}</div>
+       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+         <span class="chip" style="background:rgba(255,255,255,.1);color:#fff;border-color:transparent">Scope 1 <b>${fmt(r.s1)} t</b></span>
+         <span class="chip" style="background:rgba(255,255,255,.1);color:#fff;border-color:transparent">Scope 2 <b>${fmt(r.s2)} t</b></span>
+         <span class="chip" style="background:rgba(255,255,255,.1);color:#fff;border-color:transparent">Scope 3 <b>${fmt(r.s3)} t</b></span>
+       </div>
+     </div>
+   </div>
+
+   <div class="res-grid">
+     <div class="rc"><div class="v">${perHead.toFixed(1)}</div><div class="l">t CO₂-e / head<br><span style="color:var(--gold)">ref ≈ 5–8</span></div></div>
+     <div class="rc"><div class="v">${intensity.toFixed(2)}</div><div class="l">${iUnit}<br><span style="color:var(--gold)">ref ≈ 1.0–1.4 (milk)</span></div></div>
+     <div class="rc"><div class="v">${perPerson.toLocaleString()}</div><div class="l">≈ avg Australians' footprint<br><span style="color:var(--gold)">~15 t / person / yr</span></div></div>
+     <div class="rc"><div class="v" style="color:var(--gold)">${accus.toLocaleString()}</div><div class="l">potential ACCUs / yr<br><span style="color:var(--gold)">≈ $${revenue.toLocaleString()}</span></div></div>
+   </div>
+
+   <div class="panel" style="margin-top:16px;box-shadow:none;border:1px solid var(--hair)">
+     <h3>Carbon credit — baseline − project</h3>
+     <div class="ph">${redpct}% planned reduction · ${(buf*100).toFixed(0)}% risk buffer · $${price}/ACCU</div>
+     <div class="accueq">
+       <span class="b">Baseline ${fmt(baseline)} t</span><span class="op">−</span>
+       <span class="b">Project ${fmt(project)} t</span><span class="op">=</span>
+       <span class="b">Reduction ${fmt(reduction)} t</span><span class="op">→</span>
+       <span class="g">${accus.toLocaleString()} ACCUs</span><span class="op">≈</span>
+       <span class="g">$${revenue.toLocaleString()}/yr</span>
+     </div>
+   </div>
+
+   <div class="panel" style="margin-top:16px;box-shadow:none;border:1px solid var(--hair)">
+     <h3>Full emissions inventory</h3><div class="ph">Every source, by scope · engine: ${r.engine}</div>
+     <table class="factbl"><tr><th>Source</th><th>Scope</th><th class="n">t CO₂-e</th><th class="n">Share</th></tr>
+     ${rows.map(x=>`<tr><td>${x[0]}</td><td>${x[1]}</td>
+       <td class="n" style="color:${x[2]<0?'#4e9d52':'#16201a'}">${x[2]<0?'−':''}${fmt(Math.abs(x[2]))}</td>
+       <td class="n">${r.gross>0?((Math.abs(x[2])/r.gross)*100).toFixed(1):0}%</td></tr>`).join('')}
+     <tr style="background:#faf9f8"><td><b>Gross</b></td><td></td><td class="n"><b>${fmt(r.gross)}</b></td><td class="n">100%</td></tr>
+     <tr style="background:#faf9f8"><td><b>Net (after removals)</b></td><td></td><td class="n"><b>${fmt(r.net)}</b></td><td class="n"></td></tr>
+     </table>
+     <p style="font-size:11.5px;color:var(--muted);margin-top:10px"><b>Indicative.</b> Calculated by the LCCIP engine with NGER/IPCC-aligned factors. Designed to run on the <b>AIA Environmental Accounting Platform</b> (the industry-owned national engine) once API access is connected — the results panel will then show <b>Engine: AIA EAP</b>. Real ACCUs require an approved CER method, baseline and independent verification.</p>
+   </div>`;
+}
+
 
 boot();
 </script>
